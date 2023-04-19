@@ -1,3 +1,4 @@
+import logo  from "../../assets/img/logo.png";
 export const MainNav = () => {
     return (
         <nav className="main__nav nav">
@@ -11,7 +12,7 @@ export const MainNav = () => {
 function NavLogo() {
     return (
         <div className="nav__logo logo">
-            <img className="logo__image" src="img/logo.png" alt="logo"></img>
+            <img className="logo__image" src={logo} alt="logo"></img>
         </div>
     );
 }

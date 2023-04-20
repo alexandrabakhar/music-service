@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
 import reportWebVitals from './scripts/reportWebVitals';
-import { Container } from './scripts/renderContainer';
+import { Container } from './scripts/Container';
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 wrapper.render(

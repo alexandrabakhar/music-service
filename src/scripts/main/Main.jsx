@@ -1,6 +1,6 @@
-import { MainNav } from './renderMainNav';
-import { MainCenterblock } from './renderMainCenterblock';
-import { MainSidebar } from './renderMainSidebar';
+import { MainNav } from './MainNav';
+import { MainCenterblock } from './MainCenterblock';
+import { MainSidebar } from './MainSidebar';
 
 export const Main = () => {
     return (

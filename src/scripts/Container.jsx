@@ -1,6 +1,6 @@
-import { Main } from "./main/renderMain";
-import { Bar } from "./bar/renderBar";
-import { Footer } from "./footer/renderFooter";
+import { Main } from "./main/Main";
+import { Bar } from "./bar/Bar";
+import { Footer } from "./footer/Footer";
 
 export const Container = () => {
     return (

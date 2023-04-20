@@ -1,4 +1,4 @@
-import { BarContent } from "./renderBarContent"
+import { BarContent } from "./BarContent"
 export const Bar = () => {
     return (
         <div className="bar">

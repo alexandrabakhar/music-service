@@ -1,4 +1,4 @@
-import { CenterblockContent } from './renderCenterblockContent';
+import { CenterblockContent } from './CenterblockContent';
 
 export const MainCenterblock = () => {
     return (

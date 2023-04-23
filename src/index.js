@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
-import reportWebVitals from './Components/reportWebVitals';
-import { Container } from './Components/Container';
+import reportWebVitals from './components/reportWebVitals';
+import { Container } from './components/Container';
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 wrapper.render(

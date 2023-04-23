@@ -1,8 +1,8 @@
-import { BarContent } from "./BarContent"
+import { BarContent } from './BarContent';
 export const Bar = () => {
     return (
         <div className="bar">
             <BarContent />
         </div>
-    )
-}
+    );
+};

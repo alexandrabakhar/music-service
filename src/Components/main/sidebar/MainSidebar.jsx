@@ -1,5 +1,5 @@
-import { SidebarPersonal } from "./SidebarPersonal";
-import { SidebarBlock } from "./SidebarBlock";
+import { SidebarPersonal } from './SidebarPersonal';
+import { SidebarBlock } from './SidebarBlock';
 
 export const MainSidebar = () => {
     return (
@@ -9,9 +9,3 @@ export const MainSidebar = () => {
         </div>
     );
 };
-
-
-
-
-
-

@@ -6,13 +6,14 @@ import playlist3 from '../../../assets/img/playlist03.png';
 import { SidebarItem } from './SidebarItem';
 
 
-export const SidebarBlock = () => {
+export const SidebarBlock = (props) => {
     return (
         <div className="sidebar__block">
             <div className="sidebar__list">
-                <SidebarItem src={playlist1 || <Skeleton/>} />
-                <SidebarItem src={playlist2 || <Skeleton/>} />
-                <SidebarItem src={playlist3 || <Skeleton/>} />
+                <SidebarItem src={playlist1} isLoading={props.isLoading}/>
+                <SidebarItem src={playlist2} isLoading={props.isLoading}/>
+                <SidebarItem src={playlist3} isLoading={props.isLoading}/>
+
             </div>
         </div>
     );

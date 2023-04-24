@@ -1,11 +1,11 @@
 import { ContentTitle } from './ContentTitle';
 import { ContentPlaylist } from './ContentPlaylist';
 
-export const CenterblockContent = () => {
+export const CenterblockContent = (props) => {
     return (
         <div className="centerblock__content">
             <ContentTitle />
-            <ContentPlaylist />
+            <ContentPlaylist isLoading={props.isLoading} />
         </div>
     );
 };

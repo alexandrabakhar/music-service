@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { MainNav } from './renderMainNav';
+import './css/index.css';
+import reportWebVitals from './components/reportWebVitals';
+import { Container } from './components/Container';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <MainNav />
-  </React.StrictMode>
+const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
+wrapper.render(
+    <React.StrictMode>
+        <Container />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

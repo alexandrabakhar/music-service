@@ -1,32 +1,4 @@
-export const MainNav = () => {
-    return (
-        <nav className="main__nav nav">
-            <NavLogo />
-            <NavBurger />
-            <NavMenu />
-        </nav>
-    );
-};
-
-function NavLogo() {
-    return (
-        <div className="nav__logo logo">
-            <img className="logo__image" src="img/logo.png" alt="logo"></img>
-        </div>
-    );
-}
-
-function NavBurger() {
-    return (
-        <div className="nav__burger burger">
-            <span className="burger__line"></span>
-            <span className="burger__line"></span>
-            <span className="burger__line"></span>
-        </div>
-    );
-}
-
-function NavMenu() {
+export const NavMenu = () => {
     return (
         <div className="nav__menu menu">
             <ul className="menu__list">

@@ -1,6 +1,6 @@
-import { Main } from "./main/Main";
-import { Bar } from "./bar/Bar";
-import { Footer } from "./footer/Footer";
+import { Main } from './main/Main';
+import { Bar } from './bar/Bar';
+import { Footer } from './footer/Footer';
 
 export const Container = () => {
     return (
@@ -9,5 +9,5 @@ export const Container = () => {
             <Bar />
             <Footer />
         </div>
-    )
-}
+    );
+};

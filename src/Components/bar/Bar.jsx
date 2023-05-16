@@ -1,7 +1,9 @@
-import { BarContent } from './BarContent';
+import { BarContent } from './barContent/BarContent';
+import styles from './Bar.module.scss';
+
 export const Bar = () => {
     return (
-        <div className="bar">
+        <div className={styles.bar}>
             <BarContent />
         </div>
     );

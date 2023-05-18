@@ -1,6 +1,8 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import styles from '../../CenterblockContent.module.scss';
+import spriteSVG from '../../../../../../assets/icon/sprite.svg';
+
 
 export const PlaylistItem = (props) => {
     return (
@@ -9,7 +11,7 @@ export const PlaylistItem = (props) => {
                 <div className={styles['track__title']}>
                     <div className={styles['track__title-image']}>
                         <svg className={styles['track__title-svg']} alt="music">
-                            <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                            <use xlinkHref={`${spriteSVG}#icon-note`}></use>
                         </svg>
                     </div>
 
@@ -96,7 +98,7 @@ export const PlaylistItem = (props) => {
                 ) : (
                     <div className={styles['track__time']}>
                         <svg className={styles['track__time-svg']} alt="time">
-                            <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                            <use xlinkHref={`${spriteSVG}#icon-like`}></use>
                         </svg>
                         <span className={styles['track__time-text']}>
                             {props.time}

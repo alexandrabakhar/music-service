@@ -1,11 +1,13 @@
 import styles from '../PlayerTrackPlay.module.scss';
+import spriteSVG from '../../../../../../../assets/icon/sprite.svg';
+
 
 export const TrackContain = (props) => {
     return (
         <div className={styles['contain']}>
             <div className={styles['image']}>
                 <svg className={styles['svg']} alt="music">
-                    <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-note`}></use>
                 </svg>
             </div>
             <div className={styles['author']}>

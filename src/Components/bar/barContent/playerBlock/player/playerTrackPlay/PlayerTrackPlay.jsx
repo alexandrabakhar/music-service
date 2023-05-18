@@ -1,5 +1,7 @@
 import { TrackContain } from './trackContain/TrackContain';
 import styles from './PlayerTrackPlay.module.scss';
+import spriteSVG from '../../../../../../assets/icon/sprite.svg';
+
 
 export const PlayerTrackPlay = () => {
     return (
@@ -8,12 +10,12 @@ export const PlayerTrackPlay = () => {
             <div className={styles["like-dis"]}>
                 <div className={`${styles["like"]} ${styles["_btn-icon"]}`}>
                     <svg className={styles["like-svg"]} alt="like">
-                        <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                        <use xlinkHref={`${spriteSVG}#icon-like`}></use>
                     </svg>
                 </div>
                 <div className={`${styles["dislike"]} ${styles["_btn-icon"]}`}>
                     <svg className={styles["dislike-svg"]} alt="dislike">
-                        <use xlinkHref="img/icon/sprite.svg#icon-dislike"></use>
+                        <use xlinkHref={`${spriteSVG}#icon-dislike`}></use>
                     </svg>
                 </div>
             </div>

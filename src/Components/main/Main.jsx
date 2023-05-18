@@ -12,7 +12,7 @@ export const Main = () => {
             console.log('1');
             console.log(isLoading);
             setLoading(false);
-        }, 50000);
+        }, 500);
 
         return () => {
             clearTimeout(showSkeletonTimer);

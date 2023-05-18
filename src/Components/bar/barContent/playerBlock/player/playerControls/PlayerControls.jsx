@@ -1,5 +1,5 @@
 import styles from '../../../Player.module.scss';
-
+import spriteSVG from '../../../../../../assets/icon/sprite.svg';
 
 export const PlayerControls = () => {
     return (
@@ -9,7 +9,7 @@ export const PlayerControls = () => {
                     className={`${styles['btn-prev-svg']} ${styles['_btn-icon']}`}
                     alt="prev"
                 >
-                    <use xlinkHref="img/icon/sprite.svg#icon-prev"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-prev`}></use>
                 </svg>
             </div>
             <div className={styles['btn-play']}>
@@ -17,7 +17,7 @@ export const PlayerControls = () => {
                     className={`${styles['btn-play-svg']} ${styles['_btn-icon']}`}
                     alt="play"
                 >
-                    <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-play`}></use>
                 </svg>
             </div>
             <div className={styles['btn-next']}>
@@ -25,7 +25,7 @@ export const PlayerControls = () => {
                     className={`${styles['btn-next-svg']} ${styles['_btn-icon']}`}
                     alt="next"
                 >
-                    <use xlinkHref="img/icon/sprite.svg#icon-next"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-next`}></use>
                 </svg>
             </div>
             <div className={styles['btn-repeat']}>
@@ -33,7 +33,7 @@ export const PlayerControls = () => {
                     className={`${styles['btn-repeat-svg']} ${styles['_btn-icon']}`}
                     alt="repeat"
                 >
-                    <use xlinkHref="img/icon/sprite.svg#icon-repeat"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-repeat`}></use>
                 </svg>
             </div>
             <div className={styles['btn-shuffle']}>
@@ -41,7 +41,7 @@ export const PlayerControls = () => {
                     className={`${styles['btn-shuffle-svg']} ${styles['_btn-icon']}`}
                     alt="shuffle"
                 >
-                    <use xlinkHref="img/icon/sprite.svg#icon-shuffle"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-shuffle`}></use>
                 </svg>
             </div>
         </div>

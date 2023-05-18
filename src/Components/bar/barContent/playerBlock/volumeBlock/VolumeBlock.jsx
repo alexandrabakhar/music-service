@@ -1,4 +1,6 @@
 import styles from './VolumeBlock.module.scss';
+import spriteSVG from '../../../../../assets/icon/sprite.svg';
+
 
 export const VolumeBlock = () => {
     return (
@@ -6,7 +8,7 @@ export const VolumeBlock = () => {
             <div className={styles['content']}>
                 <div className={styles['image']}>
                     <svg className={styles['svg']} alt="volume">
-                        <use xlinkHref="img/icon/sprite.svg#icon-volume"></use>
+                        <use xlinkHref={`${spriteSVG}#icon-volume`}></use>
                     </svg>
                 </div>
                 <div className={`${styles['progress']} ${styles['_btn']}`}>

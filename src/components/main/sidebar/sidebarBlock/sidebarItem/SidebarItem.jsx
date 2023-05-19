@@ -1,6 +1,7 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import styles from '../../MainSidebar.module.scss';
+import { NavLink } from 'react-router-dom';
 
 export const SidebarItem = (props) => {
     return (
@@ -14,13 +15,16 @@ export const SidebarItem = (props) => {
                     />
                 </SkeletonTheme>
             ) : (
-                <a className={styles.link} href="#">
+                <NavLink
+                    className={styles.link}
+                    to={`/collection/${props.collectionType}`}
+                >
                     <img
                         className={styles.img}
                         src={props.src}
-                        alt="day's playlist"
+                        alt={props.collectionType}
                     ></img>
-                </a>
+                </NavLink>
             )}
         </div>
     );

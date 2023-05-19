@@ -280,7 +280,7 @@ body {
 }
 
 .col01 {
-  width: 230px;
+  width: 370px;
 }
 
 .col02 {
@@ -331,6 +331,7 @@ body {
   stroke: #4e4e4e;
 }
 .track__title-link {
+  height: 40px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

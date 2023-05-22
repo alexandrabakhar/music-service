@@ -8,7 +8,7 @@ import { ProtectedRoute } from './components/protectedRoute/ProtectedRoute';
 
 export const AppRoutes = (props) => {
     console.log(props.token);
-
+    
     return (
         <Routes>
             <Route path="/login" element={<LoginPage />} />

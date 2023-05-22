@@ -9,9 +9,9 @@ export const SidebarBlock = (props) => {
     return (
         <div className={styles.block}>
             <div className={styles.list}>
-                <SidebarItem src={playlist1} isLoading={props.isLoading} />
-                <SidebarItem src={playlist2} isLoading={props.isLoading} />
-                <SidebarItem src={playlist3} isLoading={props.isLoading} />
+                <SidebarItem src={playlist1} collectionType={1} isLoading={props.isLoading} />
+                <SidebarItem src={playlist2} collectionType={2} isLoading={props.isLoading} />
+                <SidebarItem src={playlist3} collectionType={3} isLoading={props.isLoading} />
             </div>
         </div>
     );

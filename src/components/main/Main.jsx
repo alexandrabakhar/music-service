@@ -4,7 +4,7 @@ import { MainSidebar } from './sidebar/MainSidebar';
 import React, { useState, useEffect } from 'react';
 import styles from './Main.module.scss';
 
-export const Main = () => {
+export const Main = (props) => {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -21,8 +21,8 @@ export const Main = () => {
     return (
         <main className={styles.main}>
             <MainNav />
-            <MainCenterblock pageLoading={isLoading} />
-            <MainSidebar pageLoading={isLoading} />
+            <MainCenterblock pageType={props.pageType} pageLoading={isLoading} />
+            <MainSidebar pageType={props.pageType} pageLoading={isLoading} />
         </main>
     );
 };

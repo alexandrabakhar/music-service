@@ -1,7 +1,7 @@
 .content {
     display: flex;
     flex-direction: column;
-    margin-right: 178px;
+    // margin-right: 178px;
 }
 
 .title {
@@ -10,12 +10,32 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
+    max-width: 70vw;
 }
 
 .playlist {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    height: 60vh;
+
+    //фон скроллбара
+    &::-webkit-scrollbar {
+        width: 4px; /* ширина всей полосы прокрутки */
+    }
+
+    //пустое пространство вокруг бегунка
+    &:hover::-webkit-scrollbar-track {
+        background: #4b4949;
+        border-radius: 10px; /* цвет зоны отслеживания */
+        height: 65px;
+    }
+
+    //сам бегунок
+    &:hover::-webkit-scrollbar-thumb {
+        background: #ffffff;
+        border-radius: 10px;
+    }
 }
 
 .playlist-title {
@@ -38,19 +58,19 @@
 }
 
 .col01 {
-    width: 370px;
+    width: 35%;
 }
 
 .col02 {
-    width: 321px;
+    width: 35%;
 }
 
 .col03 {
-    width: 245px;
+    width: 20%;
 }
 .col04 {
-    width: 60px;
-    text-align: end;
+    width: 10%;
+    text-align: center;
 }
 
 .playlist {
@@ -58,6 +78,8 @@
         width: 100%;
         display: block;
         margin-bottom: 12px;
+        max-width: 70vw;
+
     }
 
     &__track {
@@ -65,6 +87,9 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin-right: 20px;
+        width: 100%;
+
     }
 }
 
@@ -74,7 +99,8 @@
         flex-direction: row;
         align-items: center;
         // width: 447px;
-        min-width: 230px;
+        // min-width: 230px;
+        width: 35%;
     }
 
     &__title-image {
@@ -115,7 +141,9 @@
     }
 
     &__author {
-        width: 321px;
+        // width: 321px;
+        width: 35%;
+
         display: flex;
         justify-content: flex-start;
     }
@@ -130,7 +158,10 @@
     }
 
     &__album {
-        width: 245px;
+        // width: 245px;
+        width: 20%;
+        text-align:start;
+
     }
 
     &__album-link {
@@ -141,7 +172,9 @@
         color: #696969;
     }
 
-    //&__time {}
+    &__time {
+        width: 10%;
+    }
 
     &__time-svg {
         width: 14px;

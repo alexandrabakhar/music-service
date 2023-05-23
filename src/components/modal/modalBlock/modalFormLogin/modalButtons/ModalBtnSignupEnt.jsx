@@ -1,11 +1,10 @@
 import styles from '../../../Modal.module.scss';
 import { NavLink } from 'react-router-dom';
 
-export const ModalBtnSignupEnt = ({ setToken }) => {
+export const ModalBtnSignupEnt = () => {
     const takeToken = () => {
         const token = 'user1';
         document.cookie = `token=${token}`;
-        setToken(token);
     };
     return (
         <button

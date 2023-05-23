@@ -1,4 +1,5 @@
 import styles from '../CenterblockContent.module.scss';
+import  spriteSVG from '../../../../../assets/icon/sprite.svg'
 
 export const ContentTitle = () => {
     return (
@@ -8,7 +9,7 @@ export const ContentTitle = () => {
             <div className={`${styles["playlist-title__col"]} ${styles.col03}`}>АЛЬБОМ</div>
             <div className={`${styles["playlist-title__col"]} ${styles.col04}`}>
                 <svg className={styles["playlist-title__svg"]} alt="time">
-                    <use xlinkHref="img/icon/sprite.svg#icon-watch"></use>
+                    <use xlinkHref={`${spriteSVG}#icon-watch`}></use>
                 </svg>
             </div>
         </div>

@@ -4,12 +4,10 @@ import { ModalPasswordInput } from './modalPasswordInput/ModalPasswordInput';
 import { ModalBtnEnter } from './modalButtons/ModalBtnEnter';
 import { ModalBtnSignup } from './modalButtons/ModalBtnSignup';
 import { ModalBtnSignupEnt } from './modalButtons/ModalBtnSignupEnt';
-import { useState } from 'react';
 
 import styles from '../../Modal.module.scss';
 
 export const ModalFormLogin = (props) => {
-    const [token, setToken] = useState()
     if (props.modalType === 'signin') {
         return (
             <form className={styles['form-login']} id="formLogIn" action="#">
@@ -29,7 +27,7 @@ export const ModalFormLogin = (props) => {
                 <ModalLoginInput type="reg" />
                 <ModalPasswordInput type="first" />
                 <ModalPasswordInput type="double" />
-                <ModalBtnSignupEnt setToken={setToken} />
+                <ModalBtnSignupEnt />
             </form>
         );
     }

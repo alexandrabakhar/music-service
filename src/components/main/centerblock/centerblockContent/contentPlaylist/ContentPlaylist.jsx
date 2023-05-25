@@ -22,7 +22,7 @@ export const ContentPlaylist = (props) => {
                 title="I’m Fire"
                 author="Ali Bakgor"
                 album="I’m Fire"
-                time="2:22<"
+                time="2:22"
                 isLoading={props.isLoading}
             />
             <PlaylistItem
@@ -43,7 +43,7 @@ export const ContentPlaylist = (props) => {
                 title="Eyes on Fire"
                 author="Blue Foundation, Zeds Dead"
                 album="Eyes on Fire"
-                time="5:20<"
+                time="5:20"
                 isLoading={props.isLoading}
             />
             <PlaylistItem

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const NavMenu = () => {
     const removeCookie = () => {
-        document.cookie = `token=;expires=${new Date(0)}`
+        document.cookie = `token=;expires=${new Date(0)}`;
     }
     return (
         <div className={`${styles.menu} menu`}>

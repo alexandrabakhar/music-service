@@ -10,7 +10,7 @@ const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 wrapper.render(
     <React.StrictMode>
         <BrowserRouter>
-            <AppRoutes token={document.cookie} />
+            <AppRoutes />
             {/* <Container pageType='mainPage'/> */}
             {/* <MainPage /> */}
         </BrowserRouter>

@@ -1,0 +1,44 @@
+:root[data-theme='light'] {
+    --text-color-main: #000;
+    --text-color-translucent: #b1b1b1;
+    --burger-line-color: #000000;
+
+    --background: #ffffff;
+    --background-wrapper: #fff;
+    --background-container: #fff;
+    --background-bar: #fff;
+    --background-optional: #f6f4f4;
+    --background-nav: #f6f5f3;
+    --background-bar-progress: #d9d9d9;
+
+    --background-scrollbar-track: #f6f4f4;
+    --background-scrollbar-thumb: #b1b1b1;
+
+    --logo-img: url('../assets/img/logoLight.png');
+    --ellipse: url('../assets/icon/blackEllipse.svg');
+    --filled-ellipse: url('../assets/icon/filledBlackEllipse.svg');
+
+}
+
+:root[data-theme='dark'] {
+    --text-color-main: #ffffff;
+    --text-color-translucent: #696969;
+    --burger-line-color: #d3d3d3;
+
+    --background: #121212;
+    --background-wrapper: #383838;
+    --background-container: #181818;
+    --background-bar: #181818;
+    --background-optional: #313131;
+    --background-nav: #181818;
+    --background-bar-progress: rgba(255, 255, 255, 0.6);
+
+    --background-scrollbar-thumb: #ffffff;
+    --background-scrollbar-track: #4b4949;
+
+    --logo-img: url('../assets/img/logo.png');
+
+    --ellipse: url('../assets/icon/whiteEllipse.svg');
+    --filled-ellipse: url('../assets/icon/filledWhiteEllipse.svg');
+
+}

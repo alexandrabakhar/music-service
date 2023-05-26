@@ -260,7 +260,7 @@ body {
 .content__playlist {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .playlist-title__col {
@@ -671,7 +671,7 @@ body {
 .dropdown-menu ul {
   width: 176px;
   max-height: 232px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   display: flex;
   flex-direction: column;
   gap: 28px;

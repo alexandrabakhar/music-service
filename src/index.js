@@ -5,16 +5,20 @@ import reportWebVitals from './components/reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 import { ThemeProvider } from './providers/ThemeProvider';
+import { Provider } from 'react-redux';
+import { store } from './store/store'; 
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 
 wrapper.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <ThemeProvider>
-                <AppRoutes />
-            </ThemeProvider>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <ThemeProvider>
+                    <AppRoutes />
+                </ThemeProvider>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>
 );
 

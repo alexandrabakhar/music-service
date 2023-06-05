@@ -1,11 +1,17 @@
 import styles from '../MainNav.module.scss';
 import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from './themeSwitcher/ThemeSwitcher';
+import { useDispatch } from 'react-redux';
+import { setLogout } from '../../../../store/slices/user';
 
 export const NavMenu = () => {
-    const removeCookie = () => {
-        document.cookie = `token=;expires=${new Date(0)}`;
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch(setLogout());
+        localStorage.clear();
     };
+
     return (
         <div className={`${styles.menu} menu`}>
             <ul className={styles['menu__list']}>
@@ -19,7 +25,7 @@ export const NavMenu = () => {
                         Мой плейлист
                     </NavLink>
                 </li>
-                <li className={styles['menu__item']} onClick={removeCookie}>
+                <li className={styles['menu__item']} onClick={onLogout}>
                     <NavLink to="/login" className={styles['menu__link']}>
                         Выйти
                     </NavLink>

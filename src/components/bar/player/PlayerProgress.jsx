@@ -1,4 +1,4 @@
-import styles from '../Player.module.scss';
+import styles from '../Bar.module.scss';
 
 import { useState } from 'react';
 import { useEffect } from 'react';

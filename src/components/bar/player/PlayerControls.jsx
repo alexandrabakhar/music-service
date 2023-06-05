@@ -1,5 +1,5 @@
-import styles from '../../../Player.module.scss';
-import spriteSVG from '../../../../../../assets/icon/sprite.svg';
+import styles from '../Bar.module.scss';
+import spriteSVG from '../../../assets/icon/sprite.svg';
 import { useState } from 'react';
 
 export const PlayerControls = ({ audioRef }) => {

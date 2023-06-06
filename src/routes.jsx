@@ -13,11 +13,11 @@ export const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
 
 
-            <Route element={<ProtectedRoute />}>
+            {/* <Route element={<ProtectedRoute />}> */}
                 <Route path="/" element={<MainPage />} />
                 <Route path="/playlist" element={<PlaylistPage />} />
                 <Route path="/collection/:id" element={<CollectionPage />} />
-            </Route>
+            {/* </Route> */}
 
             {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>

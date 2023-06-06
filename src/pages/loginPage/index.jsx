@@ -24,29 +24,50 @@ export const LoginPage = () => {
     const dispatch = useDispatch();
 
     const getAccessToken = async (string) => {
-        const responseRefresh = await tokenRefresh({ refresh: string });
-        dispatch(
+        // const responseRefresh = await tokenRefresh({ refresh: string });
+        // console.log(responseRefresh);
+        // dispatch(
+        //     setLogin({
+        //         id: localStorage.getItem('userID'),
+        //         token: {
+        //             access: responseRefresh.data.access,
+        //             refresh: string,
+        //         },
+        //     })
+        // );
+        // navigate('/');
+        tokenRefresh({ refresh: string })
+        .unwrap()
+        .then((data) => {
+          dispatch(
             setLogin({
-                id: localStorage.getItem('userID'),
-                token: {
-                    access: responseRefresh.data.access,
-                    refresh: string,
-                },
+              id: localStorage.getItem('userID'),
+              token: {
+                access: data.access,
+                refresh: string,
+              },
             })
-        );
-        navigate('/');
+          )
+          navigate('/')
+        })
+        .catch((e) => {
+          setLogout()
+          localStorage.clear()
+          console.error(e.data.detail)
+        })
     };
 
-    useEffect(() => {
-        const storageRefresh = localStorage.getItem('refresh');
-        if (!storageRefresh) return;
-        getAccessToken(storageRefresh);
-    }, []);
+    // useEffect(() => {
+    //     const storageRefresh = localStorage.getItem('refresh');
+    //     if (!storageRefresh) return;
+    //     getAccessToken(storageRefresh);
+    // }, []);
 
     const onFormSubmit = async (fields) => {
         const responseLogin = await login({ ...fields });
 
         const loginData = responseLogin.data;
+        console.log(responseLogin);
 
         const responseToken = await getToken({ ...fields });
         const tokenData = responseToken.data;

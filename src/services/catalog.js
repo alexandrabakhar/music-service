@@ -3,16 +3,45 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const catalogApi = createApi({
     reducerPath: 'catalogApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://painassasin.online',
+        baseUrl: 'https://painassasin.online/',
+        tagTypes: ['Tracks'],
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().user.token.access;
+            //   console.log(token)
+            if (token) {
+                headers.set('Authorization', `Bearer ${token}`);
+            }
+            return headers;
+        },
     }),
     endpoints: (builder) => ({
         getAllTracks: builder.query({
-            query: () => '/catalog/track/all/',
+            query: () => 'catalog/track/all/',
+            providesTags: ['Tracks'],
         }),
-        getCollection: builder.query({
-            query: () => `/catalog/selection/`,
+        getPlaylistByUserID: builder.query({
+            query: (id) => `catalog/selection/${id}/`,
+        }),
+        setLike: builder.mutation({
+            query: (id) => ({
+                url: `catalog/track/${id}/favorite/`,
+                method: 'POST',
+            }),
+            invalidatesTags: ['Tracks'],
+        }),
+        setUnlike: builder.mutation({
+            query: (id) => ({
+                url: `catalog/track/${id}/favorite/`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['Tracks'],
         }),
     }),
 });
 
-export const { useGetAllTracksQuery, useGetCollectionQuery } = catalogApi;
+export const {
+    useGetAllTracksQuery,
+    useGetPlaylistByUserIDQuery,
+    useSetLikeMutation,
+    useSetUnlikeMutation,
+} = catalogApi;

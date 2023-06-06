@@ -4,34 +4,34 @@ import { CenterblockContent } from './centerblockContent/CenterblockContent';
 
 import styles from './MainCenterblock.module.scss';
 
-export const MainCenterblock = (props) => {
-    if (props.pageType === 'mainPage') {
+export const MainCenterblock = ({ pageType }) => {
+    if (pageType === 'mainPage') {
         return (
             <div className={`${styles.centerblock} centerblock`}>
                 <CenterblockSearch />
                 <h2 className="centerblock__h2">Треки</h2>
                 <CenterblockFilter />
-                <CenterblockContent isLoading={props.pageLoading} />
+                <CenterblockContent />
             </div>
         );
     }
 
-    if (props.pageType === 'playlist') {
+    if (pageType === 'playlist') {
         return (
             <div className={`${styles.centerblock} centerblock`}>
                 <CenterblockSearch />
                 <h2 className="centerblock__h2">Мои треки</h2>
-                <CenterblockContent isLoading={props.pageLoading} />
+                <CenterblockContent />
             </div>
         );
     }
 
-    if (props.pageType === 'collection') {
+    if (pageType === 'collection') {
         return (
             <div className={`${styles.centerblock} centerblock`}>
                 <CenterblockSearch />
                 <h2 className="centerblock__h2">Треки</h2>
-                <CenterblockContent isLoading={props.pageLoading} />
+                <CenterblockContent pageType={pageType} />
             </div>
         );
     }

@@ -79,7 +79,6 @@
         display: block;
         margin-bottom: 12px;
         max-width: 70vw;
-
     }
 
     &__track {
@@ -160,8 +159,7 @@
     &__album {
         // width: 245px;
         width: 20%;
-        text-align:start;
-
+        text-align: start;
     }
 
     &__album-link {
@@ -174,15 +172,33 @@
 
     &__time {
         width: 10%;
-        
     }
+    // &__like-btn {
+    //     width: 14px;
+    //     height: 12px;
+    //     margin-right: 17px;
+    //     fill: transparent;
+    //     stroke: #696969;
+    //     background-color: transparent;
+    //     color: transparent;
+    //     border: none;
+    //     &:hover {
+    //         stroke: #acacac;
+    //     }
+    //     &:focus {
+    //         fill: red;
+    //     }
+    // }
 
-    &__time-svg {
+    &__like-svg {
         width: 14px;
         height: 12px;
         margin-right: 17px;
         fill: transparent;
         stroke: #696969;
+        &:hover {
+            stroke: #acacac;
+        }
     }
 
     &__time-text {
@@ -192,6 +208,5 @@
         line-height: 24px;
         text-align: right;
         color: var(--text-color-translucent);
-
     }
 }

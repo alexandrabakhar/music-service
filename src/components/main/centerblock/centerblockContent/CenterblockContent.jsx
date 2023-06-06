@@ -3,11 +3,11 @@ import { ContentPlaylist } from './contentPlaylist/ContentPlaylist';
 
 import styles from './CenterblockContent.module.scss';
 
-export const CenterblockContent = (props) => {
+export const CenterblockContent = ( {pageType}) => {
     return (
         <div className={styles.content}>
             <ContentTitle />
-            <ContentPlaylist isLoading={props.isLoading} />
+            <ContentPlaylist pageType={pageType} />
         </div>
     );
 };

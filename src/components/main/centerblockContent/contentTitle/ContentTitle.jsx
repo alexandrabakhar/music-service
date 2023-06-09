@@ -1,5 +1,5 @@
 import styles from '../CenterblockContent.module.scss';
-import  spriteSVG from '../../../../../assets/icon/sprite.svg'
+import  spriteSVG from '../../../../assets/icon/sprite.svg'
 
 export const ContentTitle = () => {
     return (

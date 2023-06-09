@@ -1,8 +1,15 @@
 import styles from '../Bar.module.scss';
 import spriteSVG from '../../../assets/icon/sprite.svg';
 import { PlayerControls } from './PlayerControls';
+import { selectUserID } from '../../../store/slices/user';
+import { useSelector } from 'react-redux';
+import { HandlerStatusLike } from '../../HandlerStatusLike';
 
-export const PlayerBlock = ({ audioRef }) => {
+export const PlayerBlock = ({ audioRef, trackData }) => {
+    const userID = useSelector(selectUserID);
+
+    const isFavorite = trackData.stared_user.some((user) => user.id === userID);
+    console.log(isFavorite);
     return (
         <div className={styles.block}>
             {/* <Player audioRef={audioRef} /> */}
@@ -18,12 +25,12 @@ export const PlayerBlock = ({ audioRef }) => {
                         </div>
                         <div className={styles['author']}>
                             <a className={styles['author-link']} href="http://">
-                                {'Ты та...'}
+                                {trackData.name}
                             </a>
                         </div>
                         <div className={styles['album']}>
                             <a className={styles['album-link']} href="http://">
-                                {'Баста'}
+                                {trackData.author}
                             </a>
                         </div>
                     </div>
@@ -32,9 +39,12 @@ export const PlayerBlock = ({ audioRef }) => {
                         <div
                             className={`${styles['like']} ${styles['_btn-icon']}`}
                         >
-                            <svg className={styles['like-svg']} alt="like">
-                                <use xlinkHref={`${spriteSVG}#icon-like`}></use>
-                            </svg>
+                            {/* <svg className={styles['like-svg']} alt="like">
+                                <use
+                                    xlinkHref={isFavorite ? `${spriteSVG}#icon-liked` : `${spriteSVG}#icon-disliked`}
+                                ></use>
+                            </svg> */}
+                            <HandlerStatusLike track={trackData}/>
                         </div>
                         <div
                             className={`${styles['dislike']} ${styles['_btn-icon']}`}

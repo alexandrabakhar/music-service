@@ -1,5 +1,5 @@
-import styles from '../MainCenterblock.module.scss';
-import spriteSVG from '../../../../assets/icon/sprite.svg';
+import styles from '../Main.module.scss';
+import spriteSVG from '../../../assets/icon/sprite.svg';
 
 
 export const CenterblockSearch = () => {

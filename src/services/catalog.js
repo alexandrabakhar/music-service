@@ -7,7 +7,7 @@ export const catalogApi = createApi({
         tagTypes: ['Tracks'],
         prepareHeaders: (headers, { getState }) => {
             const token = getState().user.token.access;
-            //   console.log(token)
+
             if (token) {
                 headers.set('Authorization', `Bearer ${token}`);
             }
@@ -36,6 +36,9 @@ export const catalogApi = createApi({
             }),
             invalidatesTags: ['Tracks'],
         }),
+        getTrackByTrackID: builder.query({
+            query: (id) => `catalog/track/${id}`,
+        }),
     }),
 });
 
@@ -44,4 +47,5 @@ export const {
     useGetPlaylistByUserIDQuery,
     useSetLikeMutation,
     useSetUnlikeMutation,
+    useGetTrackByTrackIDQuery,
 } = catalogApi;

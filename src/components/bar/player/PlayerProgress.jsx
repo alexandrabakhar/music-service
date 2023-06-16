@@ -1,40 +1,33 @@
 import styles from '../Bar.module.scss';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
-export const PlayerProgress = ({ audioRef, progressBarRef, duration }) => {
-    const [timeProgress, setTimeProgress] = useState(0);
+export const PlayerProgress = ({ state: { time, duration }, controls }) => {
+    // const [timeProgress, setTimeProgress] = useState(0);
+    const progressRef = useRef(null);
 
     useEffect(() => {
-        const t = setInterval(() => {
-            updateWidth();
-        }, 50);
-        return () => {
-            clearInterval(t);
-        };
-    });
-
-    function updateWidth() {
-        setTimeProgress(audioRef.current.currentTime);
-        progressBarRef.current.value = timeProgress || 0;
-
-        progressBarRef.current.style.backgroundSize = `${
-            ((timeProgress / duration) * 100)
-        }% 100%`;
-    }
+        progressRef.current.value = time || 0;
+        progressRef.current.style.setProperty(
+            '--range-progress',
+            `${(time / duration) * 100}%`
+        );
+        
+    }, [time, duration]);
 
     const handleProgressChange = () => {
-        audioRef.current.currentTime = progressBarRef.current.value;
-        updateWidth();
+        controls.seek(Number(progressRef.current.value));
     };
+
     return (
         <input
             type="range"
+            min="0"
+            max={duration}
+            ref={progressRef}
             className={styles.progress}
-            defaultValue={timeProgress}
-            ref={progressBarRef}
             onChange={handleProgressChange}
-        ></input>
+        />
     );
 };

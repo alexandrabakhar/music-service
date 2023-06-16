@@ -129,13 +129,14 @@
 
 .dropdownItem span {
     width: 119px;
-    height: 24px;
+    // height: 24px;
 
-    font-family: 'StratosSkyeng';
+    font-family: 'StratosSkyeng', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
+
     transition: 0.2s all;
     &:hover {
         color: #ad61ff;

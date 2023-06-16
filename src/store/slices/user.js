@@ -5,6 +5,8 @@ const initialState = {
     username: null,
     token: null,
     id: null,
+    currentTrackId: null,
+    isPlaying: false,
 };
 
 const userSlice = createSlice({
@@ -21,12 +23,35 @@ const userSlice = createSlice({
                 isAuthenticated: true,
             };
         },
+        setRefreshToken: (state, { payload }) => ({
+            ...state,
+            refresh: payload.refresh,
+        }),
+        setAccessToken: (state, { payload }) => ({
+            ...state,
+            access: payload.access,
+        }),
+        setCurrentTrackId: (state, { payload }) => {
+            return {
+                ...state,
+                currentTrackId: payload.currentId,
+                isPlaying: false,
+            };
+        },
+
     },
 });
 
-export const { setLogout, setLogin } = userSlice.actions;
+export const {
+    setLogout,
+    setLogin,
+    setCurrentTrackId,
+    setAccessToken,
+    setRefreshToken,
+} = userSlice.actions;
 export default userSlice.reducer;
 
 // это хук
 export const selectIsAuthenticated = (state) => state.user.isAuthenticated;
 export const selectUserID = (state) => state.user.id;
+export const selectCurrentTrackId = (state) => state.user.currentTrackId;

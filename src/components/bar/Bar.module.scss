@@ -25,8 +25,6 @@
     justify-content: space-between;
 }
 .progress {
-    // background: #2e2e2e;
-
     --range-progress: 0;
 
     appearance: none;
@@ -45,18 +43,35 @@
     background-repeat: no-repeat;
 
     transition: height 0.2s;
+    &::before {
+        content: '';
+        height: inherit;
+        background: #b672ff;
+        width: var(--range-progress);
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &:hover {
+            height: 8px;
+            background: #b672ff;
+        }
+    }
+
+    /* played progress length - firefox */
+    &::-moz-range-progress {
+        background: #b672ff;
+        border-radius: 0;
+        height: 5px;
+        &:hover {
+            height: 8px;
+        }
+    }
 
     &::-webkit-slider-thumb {
         appearance: none;
         height: 0;
         width: 0;
-    }
-
-    &::-webkit-slider-runnable-track {
-        appearance: none;
-        box-shadow: none;
-        border: none;
-        background: transparent;
     }
 
     &:hover {
@@ -65,7 +80,7 @@
             appearance: none;
             height: 28px;
             width: 28px;
-            
+
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 2px 0 #555;
@@ -77,6 +92,7 @@
     display: flex;
     flex-direction: row;
     padding: 0 27px 0 31px;
+    gap: 33px;
 }
 
 .btn-prev,
@@ -88,96 +104,49 @@
     padding: 5px;
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
-
-.btn-prev {
-    margin-right: 23px;
-}
-
-.btn-prev-svg {
-    width: 15px;
-    height: 14px;
-}
-
-.btn-play {
-    margin-right: 23px;
-}
-
-.btn-play-svg {
-    width: 22px;
-    height: 20px;
-    fill: #d9d9d9;
-}
-
-.btn-stop {
-    margin-right: 23px;
-}
-
-.btn-stop-svg {
-    width: 22px;
-    height: 20px;
-    fill: #d9d9d9;
-    // stroke: #d9d9d9;
-
-    // fill: #d9d9d9;
-}
-
-.btn-next {
-    margin-right: 28px;
-    fill: #a53939;
-}
-
-.btn-next-svg {
-    width: 15px;
-    height: 14px;
-    fill: inherit;
-    stroke: #d9d9d9;
-}
-
-.btn-repeat {
-    margin-right: 24px;
-}
-
-.btn-repeat-svg {
-    width: 18px;
-    height: 12px;
-    fill: transparent;
-    stroke: #696969;
-}
-
+.btn-repeat,
 .btn-shuffle {
-    display: flex;
-    align-items: center;
+    & .active {
+        stroke: var(--svg-color-active);
+        fill: var(--svg-color-active);
+    }
 }
 
+.btn-play-svg,
+.btn-stop-svg,
+.btn-prev-svg,
+.btn-next-svg {
+    width: 22px;
+    height: 20px;
+    stroke: var(--svg-player-color);
+    fill: var(--svg-player-color);
+    cursor: pointer;
+    &:hover {
+        stroke: #696969;
+        fill: #696969;
+    }
+}
+.btn-repeat-svg,
 .btn-shuffle-svg {
+    fill: var(--svg-color);
+    stroke: var(--svg-color);
     width: 19px;
     height: 12px;
-    fill: transparent;
-    stroke: #696969;
+    cursor: pointer;
+    &:hover {
+        fill: var(--svg-color-hover);
+        stroke: var(--svg-color-hover);
+    }
 }
 
+.btn__svg-active {
+    fill: transparent;
+    stroke: var(--svg-color-active);
+}
 .track-play {
     display: flex;
     flex-direction: row;
-}
-._btn-icon:hover svg {
-    fill: transparent;
-    stroke: #acacac;
-    cursor: pointer;
-}
-._btn-icon:active svg {
-    fill: transparent;
-    stroke: #ffffff;
-    cursor: pointer;
-}
-
-._btn-icon:active .track-play__like-svg,
-._btn-icon:active .track-play__dislike-svg {
-    fill: #696969;
-    stroke: #ffffff;
-    cursor: pointer;
 }
 
 //volume
@@ -225,6 +194,7 @@
 .track-play {
     display: flex;
     flex-direction: row;
+    width: 40%;
 }
 
 .contain {
@@ -270,6 +240,7 @@
 .album {
     grid-area: album;
     min-width: 49px;
+    padding-bottom: 10px;
 }
 
 .album-link {
@@ -284,7 +255,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 26%;
+    margin-left: 10%;
 }
 
 .like,

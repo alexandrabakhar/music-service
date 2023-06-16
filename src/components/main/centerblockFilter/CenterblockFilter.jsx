@@ -3,11 +3,12 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import styles from './CenterblockFilter.module.scss';
 
-export const CenterblockFilter = () => {
+export const CenterblockFilter = ({ tracksData }) => {
     const [open, setOpen] = useState(false);
     const [top, setTop] = useState(0);
     const [left, setLeft] = useState(0);
     const [dropdownContent, setDropdownContent] = useState('');
+    const [dropdownType, setDropdownType] = useState('');
 
     const menuRef = useRef();
 
@@ -44,6 +45,30 @@ export const CenterblockFilter = () => {
         console.log(targetClass);
 
         setOpen(true);
+
+        if (target.id === 'button-author') {
+            const authorsArray = [
+                ...new Set(tracksData.map((track) => track.author)),
+            ];
+            setDropdownContent(authorsArray);
+            setDropdownType('author')
+
+        }
+
+        if (target.id === 'button-genre') {
+            const genresArray = [
+                ...new Set(tracksData.map((track) => track.genre)),
+            ];
+            setDropdownContent(genresArray);
+            setDropdownType('genre')
+
+
+
+        }
+
+        if (target.id === 'button-year') {
+            setDropdownType('year')
+        }
     };
     const coords = {
         left: left,
@@ -58,27 +83,33 @@ export const CenterblockFilter = () => {
         >
             <div
                 style={coords}
-                className={`${styles['dropdown-menu']} ${open ? styles.active : styles.inactive}`}
+                className={`${styles['dropdown-menu']} ${
+                    open ? styles.active : styles.inactive
+                }`}
             >
-                <CenterblockDropdown content={dropdownContent} />
+                <CenterblockDropdown content={dropdownContent} type={dropdownType} />
             </div>
             <div className={styles.title}>Искать по:</div>
 
             <div
                 tabIndex={0}
                 className={`filter__button ${styles.button} button-author ${styles['_btn-text']}`}
+                id="button-author"
             >
                 исполнителю
             </div>
             <div
                 tabIndex={0}
                 className={`filter__button ${styles.button} button-year ${styles['_btn-text']}`}
+                id="button-year"
+
             >
                 году выпуска
             </div>
             <div
                 tabIndex={0}
                 className={`filter__button ${styles.button} button-genre ${styles['_btn-text']}`}
+                id="button-genre"
             >
                 жанру
             </div>

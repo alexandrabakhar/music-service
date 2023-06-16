@@ -1,8 +1,5 @@
 import spriteSVG from '../assets/icon/sprite.svg';
-import {
-    useSetLikeMutation,
-    useSetUnlikeMutation,
-} from '../services/catalog';
+import { useSetLikeMutation, useSetUnlikeMutation } from '../services/catalog';
 import { useSelector } from 'react-redux';
 import { selectUserID } from '../store/slices/user';
 
@@ -11,10 +8,7 @@ import styles from './main/centerblockContent/CenterblockContent.module.scss';
 
 import { useGetTrackByTrackIDQuery } from '../services/catalog';
 
-
-
-
-export const HandlerStatusLike = ({track}) => {
+export const HandlerStatusLike = ({ track }) => {
     const [setLike] = useSetLikeMutation();
     const [setUnlike] = useSetUnlikeMutation();
     const userID = useSelector(selectUserID);
@@ -23,7 +17,7 @@ export const HandlerStatusLike = ({track}) => {
     const [isFavorite, setFavorite] = useState(false);
     // const { data, isLoading } = useGetTrackByTrackIDQuery(track.id);
     // console.log(data);
-//есть проблема с авторизацией после какого-то количества времени
+    //есть проблема с авторизацией после какого-то количества времени
     useEffect(() => {
         setFavorite(staredUsers.some((user) => user.id === userID));
     }, [track]);
@@ -32,20 +26,15 @@ export const HandlerStatusLike = ({track}) => {
         isFavorite ? setUnlike(track.id) : setLike(track.id);
     };
 
-
     return (
         <svg
-            className={styles['track__like-svg']}
+            className={`${styles['track__like-svg']} ${
+                isFavorite ? styles['track__like-active'] : ''
+            }`}
             alt="like"
             onClick={handleSetLike}
         >
-            <use
-                xlinkHref={
-                    isFavorite
-                        ? `${spriteSVG}#icon-liked`
-                        : `${spriteSVG}#icon-disliked`
-                }
-            ></use>
+            <use xlinkHref={`${spriteSVG}#icon-like`}></use>
         </svg>
     );
 };

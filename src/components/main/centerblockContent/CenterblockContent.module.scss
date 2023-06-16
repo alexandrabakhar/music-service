@@ -197,11 +197,17 @@
         height: 12px;
         margin-right: 17px;
         fill: transparent;
-        stroke: #696969;
+        stroke: var(--svg-like-stroke);
         cursor: pointer;
         &:hover {
-            stroke: #acacac;
+            stroke: var(--svg-like-stroke-hover);
+            fill: transparent;
         }
+
+    }
+    &__like-active {
+        fill: var(--svg-like-fill);
+        stroke: var(--svg-like-stroke-active);
     }
 
     &__time-text {

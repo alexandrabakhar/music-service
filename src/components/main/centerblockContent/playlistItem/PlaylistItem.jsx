@@ -11,29 +11,20 @@ import { selectUserID } from '../../../../store/slices/user';
 
 import { useEffect, useState } from 'react';
 import { HandlerStatusLike } from '../../../HandlerStatusLike';
+import { useDispatch } from 'react-redux';
+import { setCurrentTrackId } from '../../../../store/slices/user';
 
 export const PlaylistItem = ({ track, isLoading }) => {
     const durationOnMinutes = (track['duration_in_seconds'] / 60).toFixed(2);
 
-    const [setLike] = useSetLikeMutation();
-    const [setUnlike] = useSetUnlikeMutation();
-    const userID = useSelector(selectUserID);
-    const staredUsers = track['stared_user'];
-
-    const [isFavorite, setFavorite] = useState(false);
+    const dispatch = useDispatch();
 
     //есть проблема с авторизацией после какого-то количества времени
-    useEffect(() => {
-        setFavorite(staredUsers.some((user) => user.id === userID));
-    }, [track]);
 
-    const handleSetLike = () => {
-        isFavorite ? setUnlike(track.id) : setLike(track.id);
-    };
-    
+
     const handleChooseTrack = () => {
-        console.log(track.id);
-    }
+        dispatch(setCurrentTrackId({ currentId: track.id }));
+    };
     return (
         <div className={styles['playlist__item']} onClick={handleChooseTrack}>
             <div className={`${styles['playlist__track']} track`}>

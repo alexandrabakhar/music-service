@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     isAuthenticated: false,
     username: null,
-    token: null,
     id: null,
+    accessToken: null,
+    refreshToken: null,
     currentTrackId: null,
     isPlaying: false,
 };
@@ -19,17 +20,16 @@ const userSlice = createSlice({
                 ...state,
                 username: payload?.username,
                 id: payload.id,
-                token: payload.token,
                 isAuthenticated: true,
             };
         },
         setRefreshToken: (state, { payload }) => ({
             ...state,
-            refresh: payload.refresh,
+            refreshToken: payload.refreshToken,
         }),
         setAccessToken: (state, { payload }) => ({
             ...state,
-            access: payload.access,
+            accessToken: payload.accessToken,
         }),
         setCurrentTrackId: (state, { payload }) => {
             return {

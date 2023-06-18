@@ -251,50 +251,11 @@
     color: inherit;
 }
 
-.like-dis {
+.like {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 10%;
+    margin-left: 12%;
 }
 
-.like,
-.dislike {
-    padding: 5px;
-}
 
-.like-svg {
-    width: 14px;
-    height: 12px;
-    fill: transparent;
-    stroke: #696969;
-}
-
-.dislike {
-    margin-left: 28.5px;
-}
-
-.dislike-svg {
-    width: 14.34px;
-    height: 13px;
-    fill: transparent;
-    stroke: #696969;
-}
-
-._btn-icon:hover svg {
-    fill: transparent;
-    stroke: #acacac;
-    cursor: pointer;
-}
-._btn-icon:active svg {
-    fill: transparent;
-    stroke: #ffffff;
-    cursor: pointer;
-}
-
-._btn-icon:active .track-play__like-svg,
-._btn-icon:active .track-play__dislike-svg {
-    fill: #696969;
-    stroke: #ffffff;
-    cursor: pointer;
-}

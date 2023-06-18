@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectUserID } from '../../../../store/slices/user';
 
 import { useEffect, useState } from 'react';
-import { HandlerStatusLike } from '../../../HandlerStatusLike';
+import { HandlerStatusLike } from '../../../handlerStatusLike/HandlerStatusLike';
 import { useDispatch } from 'react-redux';
 import { setCurrentTrackId } from '../../../../store/slices/user';
 
@@ -20,7 +20,6 @@ export const PlaylistItem = ({ track, isLoading }) => {
     const dispatch = useDispatch();
 
     //есть проблема с авторизацией после какого-то количества времени
-
 
     const handleChooseTrack = () => {
         dispatch(setCurrentTrackId({ currentId: track.id }));

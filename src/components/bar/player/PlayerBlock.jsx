@@ -3,13 +3,11 @@ import spriteSVG from '../../../assets/icon/sprite.svg';
 import { PlayerControls } from './PlayerControls';
 import { selectUserID } from '../../../store/slices/user';
 import { useSelector } from 'react-redux';
-import { HandlerStatusLike } from '../../HandlerStatusLike';
+import { HandlerStatusLike } from '../../handlerStatusLike/HandlerStatusLike';
 
 export const PlayerBlock = ({ track }) => {
-
     const { name, author } = track;
     return (
-
         <div className={`${styles['track-play']} track-play`}>
             <div className={styles['contain']}>
                 <div className={styles['image']}>
@@ -29,11 +27,8 @@ export const PlayerBlock = ({ track }) => {
                 </div>
             </div>
 
-            <div className={styles['like-dis']}>
-                <div className={`${styles['like']} ${styles['_btn-icon']}`}>
-
-                    <HandlerStatusLike track={track} />
-                </div>
+            <div className={`${styles['like']}`}>
+                <HandlerStatusLike track={track} />
             </div>
         </div>
     );

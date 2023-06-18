@@ -148,6 +148,11 @@
     }
 }
 
+.selected span {
+    color: #ad61ff;
+    text-decoration: underline;
+}
+
 .dropdown__radio-div {
     min-width: 300px;
     box-sizing: border-box;
@@ -193,3 +198,5 @@
     display: inline-block;
     background: var(--filled-ellipse);
 }
+
+

@@ -60,7 +60,7 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
                 <div className={`${styles.centerblock} centerblock`}>
                     <CenterblockSearch />
                     <h2 className="centerblock__h2">Треки</h2>
-                    <CenterblockFilter tracksData={filteredData} />
+                    <CenterblockFilter tracksData={tracksData} />
                     <CenterblockContent
                         isLoading={isLoading}
                         tracksData={filteredData}

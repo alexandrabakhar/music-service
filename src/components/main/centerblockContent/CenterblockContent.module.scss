@@ -91,6 +91,7 @@
         margin-right: 20px;
         width: 100%;
         color: var(--text-color-main);
+        cursor: pointer;
     }
 }
 
@@ -175,40 +176,7 @@
     &__time {
         width: 10%;
     }
-    // &__like-btn {
-    //     width: 14px;
-    //     height: 12px;
-    //     margin-right: 17px;
-    //     fill: transparent;
-    //     stroke: #696969;
-    //     background-color: transparent;
-    //     color: transparent;
-    //     border: none;
-    //     &:hover {
-    //         stroke: #acacac;
-    //     }
-    //     &:focus {
-    //         fill: red;
-    //     }
-    // }
 
-    &__like-svg {
-        width: 14px;
-        height: 12px;
-        margin-right: 17px;
-        fill: transparent;
-        stroke: var(--svg-like-stroke);
-        cursor: pointer;
-        &:hover {
-            stroke: var(--svg-like-stroke-hover);
-            fill: transparent;
-        }
-
-    }
-    &__like-active {
-        fill: var(--svg-like-fill);
-        stroke: var(--svg-like-stroke-active);
-    }
 
     &__time-text {
         font-style: normal;

@@ -1,12 +1,15 @@
-import spriteSVG from '../assets/icon/sprite.svg';
-import { useSetLikeMutation, useSetUnlikeMutation } from '../services/catalog';
+import spriteSVG from '../../assets/icon/sprite.svg';
+import {
+    useSetLikeMutation,
+    useSetUnlikeMutation,
+} from '../../services/catalog';
 import { useSelector } from 'react-redux';
-import { selectUserID } from '../store/slices/user';
+import { selectUserID } from '../../store/slices/user';
 
 import { useEffect, useState } from 'react';
-import styles from './main/centerblockContent/CenterblockContent.module.scss';
+import styles from './HandlerStatusLike.module.scss';
 
-import { useGetTrackByTrackIDQuery } from '../services/catalog';
+import { useGetTrackByTrackIDQuery } from '../../services/catalog';
 
 export const HandlerStatusLike = ({ track }) => {
     const [setLike] = useSetLikeMutation();
@@ -22,7 +25,9 @@ export const HandlerStatusLike = ({ track }) => {
         setFavorite(staredUsers.some((user) => user.id === userID));
     }, [track]);
 
-    const handleSetLike = () => {
+    const handleSetLike = (e) => {
+        e.stopPropagation();
+
         isFavorite ? setUnlike(track.id) : setLike(track.id);
     };
 

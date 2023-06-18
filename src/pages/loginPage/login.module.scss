@@ -55,8 +55,11 @@ body {
 }
 
 .container {
-    max-width: 1920px;
+    width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
     position: relative;
     background-color: var(--background-container);
@@ -93,19 +96,14 @@ body {
 //=============================
 
 .block {
-    position: absolute;
-    z-index: 2;
-    left: calc(50% - (366px / 2));
-    top: calc(50% - (439px / 2));
     opacity: 1;
-    // box-shadow: 5px 5px 5px red;
     box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
 }
 
 .form-login {
     width: 366px;
-    height: 439px;
+    min-height: 439px;
     background-color: #ffffff;
     border-radius: 12px;
     display: flex;
@@ -232,4 +230,8 @@ body {
 
 .login {
     margin-bottom: 30px;
+}
+
+.error {
+    color: red;
 }

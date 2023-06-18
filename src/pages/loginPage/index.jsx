@@ -11,17 +11,23 @@ import {
 } from '../../services/usersApi';
 
 import { useDispatch } from 'react-redux';
-import { setLogin, setLogout } from '../../store/slices/user';
-import { useEffect } from 'react';
+import {
+    setAccessToken,
+    setLogin,
+    setLogout,
+    setRefreshToken,
+} from '../../store/slices/user';
+import { useEffect, useState } from 'react';
 
 export const LoginPage = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
-    const [login, { isLoading: isLoadingLogin, isError: isErrorLogin }] =
-        useLoginMutation();
+    const [login, { isError: isErrorLogin }] = useLoginMutation();
     const [getToken, { isError: isErrorGetToken }] = useGetTokenMutation();
-    const [tokenRefresh, { isErrorTokenRefresh }] = useTokenRefreshMutation();
+    const [tokenRefresh] = useTokenRefreshMutation();
     const dispatch = useDispatch();
+    const [authError, setAuthError] = useState('');
+    console.log(isErrorLogin);
 
     const getAccessToken = async (string) => {
         // const responseRefresh = await tokenRefresh({ refresh: string });
@@ -36,47 +42,64 @@ export const LoginPage = () => {
         //     })
         // );
         // navigate('/');
-        tokenRefresh({ refresh: string })
-        .unwrap()
-        .then((data) => {
-          dispatch(
-            setLogin({
-              id: localStorage.getItem('userID'),
-              token: {
-                access: data.access,
-                refresh: string,
-              },
+        // tokenRefresh({ refresh: string })
+        // .unwrap()
+        // .then((data) => {
+        //   dispatch(
+        //     setLogin({
+        //       id: localStorage.getItem('userID'),
+        //       token: {
+        //         access: data.access,
+        //         refresh: string,
+        //       },
+        //     })
+        //   )
+        //   navigate('/')
+        // })
+        // .catch((e) => {
+        //   setLogout()
+        //   localStorage.clear()
+        //   console.error(e.data.detail)
+        // })
+        tokenRefresh({ refreshToken: string })
+            .unwrap()
+            .then((data) => {
+                dispatch(setLogin({ id: localStorage.getItem('userID') }));
+                dispatch(setRefreshToken({ refreshToken: string }));
+                dispatch(setAccessToken({ accessToken: data.access }));
+                navigate('/');
             })
-          )
-          navigate('/')
-        })
-        .catch((e) => {
-          setLogout()
-          localStorage.clear()
-          console.error(e.data.detail)
-        })
+            .catch((e) => {
+                setLogout();
+                localStorage.clear();
+                console.error(e.data.detail);
+            });
     };
 
-    // useEffect(() => {
-    //     const storageRefresh = localStorage.getItem('refresh');
-    //     if (!storageRefresh) return;
-    //     getAccessToken(storageRefresh);
-    // }, []);
+    useEffect(() => {
+        const storageRefresh = localStorage.getItem('refreshToken');
+        if (!storageRefresh) return;
+        getAccessToken(storageRefresh);
+    }, []);
 
     const onFormSubmit = async (fields) => {
-        const responseLogin = await login({ ...fields });
+        setAuthError('');
+        try {
+            const responseLogin = await login({ ...fields }).unwrap();
 
-        const loginData = responseLogin.data;
-        console.log(responseLogin);
+            dispatch(setLogin({ id: responseLogin.id }));
+            localStorage.setItem('userID', responseLogin.id);
 
-        const responseToken = await getToken({ ...fields });
-        const tokenData = responseToken.data;
-
-        dispatch(setLogin({ ...loginData, token: tokenData }));
-
-        localStorage.setItem('userID', loginData.id);
-        localStorage.setItem('refresh', tokenData.refresh);
-        navigate('/');
+            const responseToken = await getToken({ ...fields });
+            const tokenData = responseToken.data;
+            dispatch(setRefreshToken({ refreshToken: tokenData.refresh }));
+            dispatch(setAccessToken({ accessToken: tokenData.access }));
+            localStorage.setItem('refreshToken', tokenData.refresh);
+            navigate('/');
+        } catch (e) {
+            console.error(e.data.detail);
+            setAuthError(e.data.detail);
+        }
     };
 
     const handleRegistrationButtonClick = () => {
@@ -106,13 +129,15 @@ export const LoginPage = () => {
                         className={s.input}
                         {...register('password')}
                     />
+                    {isErrorLogin ? (
+                        <p className={s.error}>{authError}</p>
+                    ) : null}
                     <button
                         className={s['btn-enter']}
                         id="btnEnter"
                         type="submit"
                     >
                         Войти
-                        {/* <NavLink to="/">Войти</NavLink> */}
                     </button>
 
                     <button
@@ -121,7 +146,6 @@ export const LoginPage = () => {
                         onClick={handleRegistrationButtonClick}
                     >
                         Зарегистрироваться
-                        {/* <NavLink to="/registration">Зарегистрироваться</NavLink> */}
                     </button>
                 </form>
             </div>

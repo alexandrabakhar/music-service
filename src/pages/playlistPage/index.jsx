@@ -6,22 +6,25 @@ import { useGetAllTracksQuery } from '../../services/catalog';
 import { selectUserID } from '../../store/slices/user';
 import { useSelector } from 'react-redux';
 
-
 export const PlaylistPage = () => {
     const { data, isLoading } = useGetAllTracksQuery();
-    const userID = useSelector(selectUserID)
+    const userID = useSelector(selectUserID);
 
-    // let tracksData = [];
-    const tracksData = data.filter((track) => track.stared_user.some((user) => user.id === userID))
-    // if (data) {
-    //     tracksData = data;
-    // }
+    const tracksData = data.filter((track) =>
+        track.stared_user.some((user) => user.id === userID)
+    );
 
 
-    return (
+    return isLoading ? (
+        <div>Loading</div>
+    ) : (
         <div className={styles.container}>
-            <Main pageType={'playlist'} tracksData={tracksData} isLoading={isLoading} />
-            <Bar />
+            <Main
+                pageType={'playlist'}
+                tracksData={tracksData}
+                isLoading={isLoading}
+            />
+            <Bar tracks={tracksData} />
             <Footer />
         </div>
     );

@@ -15,7 +15,7 @@ import {
     deleteYear,
 } from '../../../../store/slices/filter';
 
-export const CenterblockDropdown = ({ content, type, storeFilter }) => {
+export const CenterblockDropdown = ({ content, type }) => {
     const dispatch = useDispatch();
     const selectedGenres = useSelector(selectGenre);
     const selectedAuthors = useSelector(selectAuthor);
@@ -74,10 +74,14 @@ export const CenterblockDropdown = ({ content, type, storeFilter }) => {
         return (
             <ul>
                 {content.map((item, i) => {
+                    const itemClass = selectedGenres.includes(item)
+                        ? `${styles.dropdownItem} ${styles.selected}`
+                        : styles.dropdownItem;
+
                     return (
                         <li
                             key={i}
-                            className={styles.dropdownItem}
+                            className={itemClass}
                             onClick={() => handleSetFilter(item)}
                         >
                             <span> {item} </span>
@@ -92,10 +96,14 @@ export const CenterblockDropdown = ({ content, type, storeFilter }) => {
         return (
             <ul>
                 {content.map((item, i) => {
+                    const itemClass = selectedAuthors.includes(item)
+                        ? `${styles.dropdownItem} ${styles.selected}`
+                        : styles.dropdownItem;
+
                     return (
                         <li
                             key={i}
-                            className={styles.dropdownItem}
+                            className={itemClass}
                             onClick={(e) => {
                                 handleSetFilter(item);
                             }}

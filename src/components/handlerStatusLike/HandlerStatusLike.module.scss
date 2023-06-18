@@ -1,0 +1,17 @@
+.track__like-svg {
+    width: 14px;
+    height: 12px;
+    margin-right: 17px;
+    fill: transparent;
+    stroke: var(--svg-like-stroke);
+    cursor: pointer;
+    &:hover {
+        stroke: var(--svg-like-stroke-hover);
+        fill: transparent;
+    }
+
+}
+.track__like-active {
+    fill: var(--svg-like-fill);
+    stroke: var(--svg-like-stroke-active);
+}

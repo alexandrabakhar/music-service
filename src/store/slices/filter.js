@@ -4,6 +4,7 @@ const initialState = {
     year: [],
     author: [],
     genre: [],
+    search: ''
 };
 
 const filterSlice = createSlice({
@@ -35,6 +36,10 @@ const filterSlice = createSlice({
             ...state,
             year: [],
         }),
+        setSearch: (state, { payload }) => ({
+            ...state,
+            search: payload,
+          }),
     },
 });
 
@@ -45,6 +50,7 @@ export const {
     deleteAuthor,
     deleteGenre,
     deleteYear,
+    setSearch
 } = filterSlice.actions;
 
 export default filterSlice.reducer;
@@ -52,3 +58,4 @@ export default filterSlice.reducer;
 export const selectAuthor = (state) => state.filter.author;
 export const selectGenre = (state) => state.filter.genre;
 export const selectYear = (state) => state.filter.year;
+export const selectSearch = (state) => state.filter.search;

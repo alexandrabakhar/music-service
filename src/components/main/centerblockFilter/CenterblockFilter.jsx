@@ -51,8 +51,7 @@ export const CenterblockFilter = ({ tracksData }) => {
                 ...new Set(tracksData.map((track) => track.author)),
             ];
             setDropdownContent(authorsArray);
-            setDropdownType('author')
-
+            setDropdownType('author');
         }
 
         if (target.id === 'button-genre') {
@@ -60,14 +59,11 @@ export const CenterblockFilter = ({ tracksData }) => {
                 ...new Set(tracksData.map((track) => track.genre)),
             ];
             setDropdownContent(genresArray);
-            setDropdownType('genre')
-
-
-
+            setDropdownType('genre');
         }
 
         if (target.id === 'button-year') {
-            setDropdownType('year')
+            setDropdownType('year');
         }
     };
     const coords = {
@@ -87,7 +83,10 @@ export const CenterblockFilter = ({ tracksData }) => {
                     open ? styles.active : styles.inactive
                 }`}
             >
-                <CenterblockDropdown content={dropdownContent} type={dropdownType} />
+                <CenterblockDropdown
+                    content={dropdownContent}
+                    type={dropdownType}
+                />
             </div>
             <div className={styles.title}>Искать по:</div>
 
@@ -102,7 +101,6 @@ export const CenterblockFilter = ({ tracksData }) => {
                 tabIndex={0}
                 className={`filter__button ${styles.button} button-year ${styles['_btn-text']}`}
                 id="button-year"
-
             >
                 году выпуска
             </div>

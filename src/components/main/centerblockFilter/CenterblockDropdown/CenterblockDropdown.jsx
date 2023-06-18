@@ -124,16 +124,37 @@ export const CenterblockDropdown = ({ content, type }) => {
                     id="new"
                     name="years"
                     value="Более новые"
-                    onClick={() => handleSetFilter('new')}
+                    onClick={(e) => {
+                        selectedYears.includes('new')
+                            ? (e.target.checked = false)
+                            : (e.target.checked = true);
+
+                        handleSetFilter('new');
+                    }}
                 ></input>
-                <label htmlFor="new">Более новые</label>
+                <label
+                    className={
+                        selectedYears.includes('new')
+                            ? `${styles.selected}`
+                            : ''
+                    }
+                    htmlFor="new"
+                >
+                    Более новые
+                </label>
 
                 <input
                     type="radio"
                     id="old"
                     name="years"
                     value="Более старые"
-                    onClick={() => handleSetFilter('old')}
+                    onClick={(e) => {
+                        selectedYears.includes('old')
+                            ? (e.target.checked = false)
+                            : (e.target.checked = true);
+
+                        handleSetFilter('old');
+                    }}
                 ></input>
                 <label htmlFor="old">Более старые</label>
             </div>

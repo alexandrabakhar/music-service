@@ -12,10 +12,10 @@ import {
 
 import { useDispatch } from 'react-redux';
 import {
-    setAccessToken,
+    setAccess,
     setLogin,
     setLogout,
-    setRefreshToken,
+    setRefresh,
 } from '../../store/slices/user';
 import { useEffect, useState } from 'react';
 
@@ -29,7 +29,7 @@ export const LoginPage = () => {
     const [authError, setAuthError] = useState('');
     console.log(isErrorLogin);
 
-    const getAccessToken = async (string) => {
+    const getAccess = async (string) => {
         // const responseRefresh = await tokenRefresh({ refresh: string });
         // console.log(responseRefresh);
         // dispatch(
@@ -61,12 +61,12 @@ export const LoginPage = () => {
         //   localStorage.clear()
         //   console.error(e.data.detail)
         // })
-        tokenRefresh({ refreshToken: string })
+        tokenRefresh({ refresh: string })
             .unwrap()
             .then((data) => {
                 dispatch(setLogin({ id: localStorage.getItem('userID') }));
-                dispatch(setRefreshToken({ refreshToken: string }));
-                dispatch(setAccessToken({ accessToken: data.access }));
+                dispatch(setRefresh({ refresh: string }));
+                dispatch(setAccess({ access: data.access }));
                 navigate('/');
             })
             .catch((e) => {
@@ -77,9 +77,9 @@ export const LoginPage = () => {
     };
 
     useEffect(() => {
-        const storageRefresh = localStorage.getItem('refreshToken');
+        const storageRefresh = localStorage.getItem('refresh');
         if (!storageRefresh) return;
-        getAccessToken(storageRefresh);
+        getAccess(storageRefresh);
     }, []);
 
     const onFormSubmit = async (fields) => {
@@ -92,9 +92,9 @@ export const LoginPage = () => {
 
             const responseToken = await getToken({ ...fields });
             const tokenData = responseToken.data;
-            dispatch(setRefreshToken({ refreshToken: tokenData.refresh }));
-            dispatch(setAccessToken({ accessToken: tokenData.access }));
-            localStorage.setItem('refreshToken', tokenData.refresh);
+            dispatch(setRefresh({ refresh: tokenData.refresh }));
+            dispatch(setAccess({ access: tokenData.access }));
+            localStorage.setItem('refresh', tokenData.refresh);
             navigate('/');
         } catch (e) {
             console.error(e.data.detail);

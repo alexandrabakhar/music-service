@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import {
     selectAuthor,
     selectGenre,
+    selectSearch,
     selectYear,
 } from '../../store/slices/filter';
 
@@ -17,8 +18,10 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
     const byAuthor = useSelector(selectAuthor);
     const byGenre = useSelector(selectGenre);
     const byYear = useSelector(selectYear);
+    const searchText = useSelector(selectSearch).toLowerCase();
 
     let filteredData = [...tracksData];
+    let filteredDataBySearch = [...tracksData]
 
     if (byAuthor.length > 0) {
         filteredData = filteredData.filter(({ author }) =>
@@ -30,6 +33,17 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
         filteredData = filteredData.filter(({ genre }) =>
             byGenre.includes(genre)
         );
+    }
+
+    if (searchText.length > 0) {
+        filteredDataBySearch = filteredData.filter((track) => {
+            return (
+                track.name.toLowerCase().includes(searchText) ||
+                track.author.toLowerCase().includes(searchText) ||
+                track.album.toLowerCase().includes(searchText)
+            );
+        });
+        filteredData = filteredDataBySearch;
     }
 
     switch (byYear[0]) {
@@ -80,7 +94,7 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
                     <h2 className="centerblock__h2">Мои треки</h2>
                     <CenterblockContent
                         isLoading={isLoading}
-                        tracksData={tracksData}
+                        tracksData={filteredDataBySearch}
                     />
                 </div>
                 <MainSidebar pageType={pageType} />
@@ -97,7 +111,7 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
                     <h2 className="centerblock__h2">{heading}</h2>
                     <CenterblockContent
                         isLoading={isLoading}
-                        tracksData={tracksData}
+                        tracksData={filteredDataBySearch}
                     />
                 </div>
                 <MainSidebar pageType={pageType} />

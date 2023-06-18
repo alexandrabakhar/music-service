@@ -1,11 +1,7 @@
 import styles from './Bar.module.scss';
 import { useRef, useState } from 'react';
-// import track from '../../assets/music/track.mp3';
 import { PlayerProgress } from './player/PlayerProgress';
 import { PlayerBlock } from './player/PlayerBlock';
-import { useGetTrackByTrackIDQuery } from '../../services/catalog';
-import { useSelector } from 'react-redux';
-import { selectCurrentTrackId } from '../../store/slices/user';
 import { useEffect } from 'react';
 import { useAudio } from 'react-use';
 import { useDispatch } from 'react-redux';
@@ -13,14 +9,14 @@ import spriteSVG from '../../assets/icon/sprite.svg';
 
 import { setCurrentTrackId } from '../../store/slices/user';
 
-export const Bar = ({ tracks }) => {
-    const currentTrackId = useSelector(selectCurrentTrackId);
+export const Bar = ({ tracks, currentTrackId }) => {
 
     const dispatch = useDispatch();
     const [isShuffle, setShuffle] = useState(false);
     const [isRepeat, setRepeat] = useState(false);
 
     let ind = tracks.findIndex((track) => track.id === currentTrackId);
+
     if (ind < 0) {
         ind = 0;
     }

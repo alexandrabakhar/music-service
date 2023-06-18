@@ -4,8 +4,8 @@ const initialState = {
     isAuthenticated: false,
     username: null,
     id: null,
-    accessToken: null,
-    refreshToken: null,
+    access: null,
+    refresh: null,
     currentTrackId: null,
     isPlaying: false,
 };
@@ -23,13 +23,13 @@ const userSlice = createSlice({
                 isAuthenticated: true,
             };
         },
-        setRefreshToken: (state, { payload }) => ({
+        setRefresh: (state, { payload }) => ({
             ...state,
-            refreshToken: payload.refreshToken,
+            refresh: payload.refresh,
         }),
-        setAccessToken: (state, { payload }) => ({
+        setAccess: (state, { payload }) => ({
             ...state,
-            accessToken: payload.accessToken,
+            access: payload.access,
         }),
         setCurrentTrackId: (state, { payload }) => {
             return {
@@ -38,7 +38,6 @@ const userSlice = createSlice({
                 isPlaying: false,
             };
         },
-
     },
 });
 
@@ -46,8 +45,8 @@ export const {
     setLogout,
     setLogin,
     setCurrentTrackId,
-    setAccessToken,
-    setRefreshToken,
+    setAccess,
+    setRefresh,
 } = userSlice.actions;
 export default userSlice.reducer;
 

@@ -34,6 +34,7 @@ export const userApi = createApi({
                 method: 'POST',
                 body,
             }),
+            
             // обновление токена
         }),
     }),

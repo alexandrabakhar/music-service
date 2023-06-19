@@ -10,7 +10,7 @@ export const MainPage = () => {
     const { data, isLoading } = useGetAllTracksQuery();
     const tracksData = data;
     const currentTrackId = useSelector(selectCurrentTrackId);
-
+    console.log(tracksData);
     return isLoading ? (
         <div>Loading</div>
     ) : (

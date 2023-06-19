@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 import { ThemeProvider } from './providers/ThemeProvider';
 import { Provider } from 'react-redux';
-import { store } from './store/store'; 
+import { store } from './store/store';
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 

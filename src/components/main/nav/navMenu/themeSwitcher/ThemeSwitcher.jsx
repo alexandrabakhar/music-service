@@ -21,9 +21,13 @@ export const ThemeSwitcher = () => {
             <svg
                 className={`${styles['btn__switch-svg']}`}
                 alt="switch"
+                data-testid="theme-switcher-svg"
                 onClick={changeTheme}
             >
-                <use xlinkHref={`${switchSVG}#${getIconType()}`}></use>
+                <use
+                    xlinkHref={`${switchSVG}#${getIconType()}`}
+                    data-testid="theme-switcher-use"
+                ></use>
             </svg>
         </li>
     );

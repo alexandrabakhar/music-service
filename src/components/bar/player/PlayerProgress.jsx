@@ -4,7 +4,6 @@ import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
 export const PlayerProgress = ({ state: { time, duration }, controls }) => {
-    // const [timeProgress, setTimeProgress] = useState(0);
     const progressRef = useRef(null);
 
     useEffect(() => {
@@ -13,7 +12,6 @@ export const PlayerProgress = ({ state: { time, duration }, controls }) => {
             '--range-progress',
             `${(time / duration) * 100}%`
         );
-        
     }, [time, duration]);
 
     const handleProgressChange = () => {

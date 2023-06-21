@@ -17,8 +17,7 @@ export const HandlerStatusLike = ({ track }) => {
     const staredUsers = track['stared_user'];
 
     const [isFavorite, setFavorite] = useState(false);
-    // const { data, isLoading } = useGetTrackByTrackIDQuery(track.id);
-    // console.log(data);
+
     //есть проблема с авторизацией после какого-то количества времени
     useEffect(() => {
         setFavorite(staredUsers.some((user) => user.id === userID));

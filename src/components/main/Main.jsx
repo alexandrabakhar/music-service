@@ -118,12 +118,4 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
             </main>
         );
     }
-    // изначальный вариант
-    // return (
-    //     <main className={styles.main}>
-    //         <MainNav />
-    //         <MainCenterblock pageType={pageType} tracksData={tracksData} />
-    //         <MainSidebar pageType={pageType} />
-    //     </main>
-    // );
 };

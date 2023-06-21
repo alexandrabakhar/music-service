@@ -3,7 +3,6 @@ import { PlaylistItem } from './playlistItem/PlaylistItem';
 import styles from './CenterblockContent.module.scss';
 
 export const CenterblockContent = ({ tracksData, isLoading }) => {
-
     return (
         <div className={styles.content}>
             <ContentTitle />
@@ -14,7 +13,6 @@ export const CenterblockContent = ({ tracksData, isLoading }) => {
                         key={track.id}
                         track={track}
                         isLoading={isLoading}
-                        
                     />
                 ))}
             </div>

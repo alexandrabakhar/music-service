@@ -10,7 +10,7 @@ export const MainPage = () => {
     const { data, isLoading } = useGetAllTracksQuery();
     const tracksData = data;
     const currentTrackId = useSelector(selectCurrentTrackId);
-    console.log(tracksData);
+    
     return isLoading ? (
         <div>Loading</div>
     ) : (
@@ -21,15 +21,4 @@ export const MainPage = () => {
             <Footer />
         </div>
     );
-    // if (!isLoading) {
-    //     return (
-    //         <div className={styles.container}>
-    //             <Main pageType={'mainPage'} tracksData={tracksData} />
-
-    //             <Bar tracks={tracksData} />
-
-    //             <Footer />
-    //         </div>
-    //     );
-    // }
 };

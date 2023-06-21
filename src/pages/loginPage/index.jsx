@@ -23,44 +23,12 @@ export const LoginPage = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [login, { isError: isErrorLogin }] = useLoginMutation();
-    const [getToken, { isError: isErrorGetToken }] = useGetTokenMutation();
+    const [getToken] = useGetTokenMutation();
     const [tokenRefresh] = useTokenRefreshMutation();
     const dispatch = useDispatch();
     const [authError, setAuthError] = useState('');
-    console.log(isErrorLogin);
 
     const getAccess = async (string) => {
-        // const responseRefresh = await tokenRefresh({ refresh: string });
-        // console.log(responseRefresh);
-        // dispatch(
-        //     setLogin({
-        //         id: localStorage.getItem('userID'),
-        //         token: {
-        //             access: responseRefresh.data.access,
-        //             refresh: string,
-        //         },
-        //     })
-        // );
-        // navigate('/');
-        // tokenRefresh({ refresh: string })
-        // .unwrap()
-        // .then((data) => {
-        //   dispatch(
-        //     setLogin({
-        //       id: localStorage.getItem('userID'),
-        //       token: {
-        //         access: data.access,
-        //         refresh: string,
-        //       },
-        //     })
-        //   )
-        //   navigate('/')
-        // })
-        // .catch((e) => {
-        //   setLogout()
-        //   localStorage.clear()
-        //   console.error(e.data.detail)
-        // })
         tokenRefresh({ refresh: string })
             .unwrap()
             .then((data) => {

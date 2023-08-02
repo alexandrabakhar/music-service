@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
+import './styles/themes.scss';
 import reportWebVitals from './components/reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 
 wrapper.render(
     <React.StrictMode>
         <BrowserRouter>
-            <AppRoutes />
-            {/* <Container pageType='mainPage'/> */}
-            {/* <MainPage /> */}
+            <ThemeProvider>
+                <AppRoutes />
+            </ThemeProvider>
         </BrowserRouter>
     </React.StrictMode>
 );

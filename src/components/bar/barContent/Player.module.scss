@@ -24,7 +24,7 @@
     outline: none;
     cursor: pointer;
 
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--background-bar-progress);
     border-radius: 5px;
     background-image: linear-gradient(#b672ff, #b672ff);
     background-size: 0% 100%;

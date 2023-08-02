@@ -7,7 +7,7 @@ export const MainSidebar = (props) => {
         return (
             <div className={`${styles['sidebar']} sidebar`}>
                 <SidebarPersonal name="Sergey.Ivanov" />
-                <SidebarBlock isLoading={props.pageLoading} />
+                <SidebarBlock />
             </div>
         );
     }

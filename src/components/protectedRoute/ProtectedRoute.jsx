@@ -1,19 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsAuthenticated } from '../../store/slices/user';
 
 export const ProtectedRoute = ({ redirectPath = '/login' }) => {
-    function getCookie(name) {
-        let matches = document.cookie.match(
-            new RegExp(
-                '(?:^|; )' +
-                    name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') +
-                    '=([^;]*)'
-            )
-        );
-        return matches ? decodeURIComponent(matches[1]) : undefined;
-    }
-    const isToken = Boolean(getCookie('token'));
+    const isAuthenticated = useSelector(selectIsAuthenticated);
 
-    if (!isToken) {
+    if (!isAuthenticated) {
         return <Navigate to={redirectPath} replace={true} />;
     }
 

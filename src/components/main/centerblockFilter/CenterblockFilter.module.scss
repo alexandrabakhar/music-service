@@ -1,0 +1,202 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // margin-bottom: 51px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 15px;
+}
+
+.button {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid var(--text-color-main);
+    border-radius: 60px;
+    padding: 6px 20px;
+
+    transition: 0.2s all;
+
+    &:focus {
+        border-color: #ad61ff;
+        color: #ad61ff;
+        cursor: pointer;
+        
+    }
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+._btn-text:hover {
+    border-color: #d9b6ff;
+    color: #d9b6ff;
+    cursor: pointer;
+}
+
+._btn-text:active {
+    border-color: #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+}
+
+.dropdown-div {
+    width: 300px;
+    height: 200px;
+}
+.dropdown-menu {
+    position: absolute;
+    min-width: 248px;
+    max-height: 305px;
+    background: var(--background-optional);
+    border-radius: 12px;
+
+    padding-top: 36.5px;
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-bottom: 36.5px;
+    box-sizing: border-box;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        right: 20px;
+        height: 20px;
+        width: 20px;
+        background: var(--secondary-bg);
+        transform: rotate(45deg);
+    }
+    
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: var(--speed) ease;
+}
+
+.dropdown-menu.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: var(--speed) ease;
+}
+
+.dropdown-menu li:hover span {
+    cursor: pointer;
+}
+
+.dropdown-menu ul {
+    width: 176px;
+    max-height: 232px;
+
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    box-sizing: border-box;
+}
+
+//фон скроллбара
+.dropdown-menu ul::-webkit-scrollbar {
+    width: 4px; /* ширина всей полосы прокрутки */
+}
+
+//пустое пространство вокруг бегунка
+.dropdown-menu ul::-webkit-scrollbar-track {
+    background: #4b4949;
+    border-radius: 10px; /* цвет зоны отслеживания */
+    height: 65px;
+}
+
+//сам бегунок
+.dropdown-menu ul::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 10px;
+}
+.dropdownItem {
+    display: flex;
+}
+
+.dropdownItem span {
+    width: 119px;
+    // height: 24px;
+
+    font-family: 'StratosSkyeng', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    transition: 0.2s all;
+    &:hover {
+        color: #ad61ff;
+        text-decoration: underline;
+    }
+    &:active {
+        color: #ad61ff;
+        text-decoration: underline;
+    }
+}
+
+.selected span {
+    color: #ad61ff;
+    text-decoration: underline;
+}
+
+.dropdown__radio-div {
+    min-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    text-align: center;
+
+}
+
+.dropdown__radio-div input {
+    display: none;
+}
+
+.dropdown__radio-div label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+
+}
+.dropdown__radio-div label::before {
+    text-align: center;
+
+    width: 18px;
+    height: 18px;
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    background: var(--ellipse);
+    cursor: pointer;
+}
+
+
+.dropdown__radio-div input:checked + label::before {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    content: '';
+    display: inline-block;
+    background: var(--filled-ellipse);
+}
+
+

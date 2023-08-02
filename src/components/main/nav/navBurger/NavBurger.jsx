@@ -6,10 +6,14 @@ export const NavBurger = ({ onClick }) => {
     };
 
     return (
-        <div onClick={changeVisibility} className={`${styles.burger} burger`}>
-            <span className={styles["burger__line"]}></span>
-            <span className={styles["burger__line"]}></span>
-            <span className={styles["burger__line"]}></span>
+        <div
+            onClick={changeVisibility}
+            className={`${styles.burger} burger`}
+            data-testid="nav-burger"
+        >
+            <span className={styles['burger__line']}></span>
+            <span className={styles['burger__line']}></span>
+            <span className={styles['burger__line']}></span>
         </div>
     );
 };

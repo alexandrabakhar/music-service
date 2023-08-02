@@ -5,7 +5,7 @@ export const ThemeContext = createContext({});
 export const ThemeProvider = ({ children }) => {
     // с помощью хука будем хранить данные о текущей теме
     const currentTheme = localStorage.getItem('theme');
-    const [theme, setTheme] = useState(currentTheme || dark);
+    const [theme, setTheme] = useState(currentTheme || 'dark');
 
     useEffect(() => {
         document.documentElement.dataset.theme = theme;

@@ -12,7 +12,6 @@
     margin-bottom: 24px;
     max-width: 70vw;
     margin-top: 32px;
-
 }
 
 .playlist {
@@ -79,8 +78,16 @@
     &__item {
         width: 100%;
         display: block;
-        margin-bottom: 12px;
         max-width: 70vw;
+        box-sizing: border-box;
+        transition: all 0.3s;
+        padding-bottom: 8px;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--background-playlistItem-hover);
+        }
     }
 
     &__track {
@@ -91,7 +98,6 @@
         margin-right: 20px;
         width: 100%;
         color: var(--text-color-main);
-        cursor: pointer;
     }
 }
 
@@ -176,7 +182,6 @@
     &__time {
         width: 10%;
     }
-
 
     &__time-text {
         font-style: normal;

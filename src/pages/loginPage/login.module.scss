@@ -116,18 +116,6 @@ body {
     }
 }
 
-.logo {
-    width: 140px;
-    height: 21px;
-    margin-bottom: 34px;
-    background-color: transparent;
-
-    & img {
-        width: 140px;
-        height: auto;
-    }
-}
-
 .input {
     width: 100%;
     border-top: none;
@@ -155,7 +143,6 @@ body {
         letter-spacing: -0.05px;
         color: #d0cece;
     }
-
 }
 
 .btn-signup-ent {
@@ -218,14 +205,12 @@ body {
     line-height: 24px;
     letter-spacing: -0.05px;
 
-
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -0.05px;
     // color: inherit;
-
 }
 
 .login {

@@ -1,9 +1,9 @@
-import logo from '../../assets/img/logo_modal.png';
 import s from './registration.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSignUpMutation } from '../../redux/services/usersApi';
 import { useState } from 'react';
+import { Logo } from '../../components/Logo/Logo';
 
 export const RegistrationPage = () => {
     const navigate = useNavigate();
@@ -38,8 +38,7 @@ export const RegistrationPage = () => {
                     className={s['form-login']}
                     method="POST"
                 >
-                    <img src={logo} className={s.logo} alt="logo" />
-
+                    <Logo type="auth" />
                     <input
                         placeholder="Логин"
                         type="text"

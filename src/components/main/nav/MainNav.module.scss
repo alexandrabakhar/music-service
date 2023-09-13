@@ -4,23 +4,6 @@
     padding: 20px 2vw 20px 2vw;
 }
 
-.logo {
-    width: 113.33px;
-    height: 43px;
-    padding: 13px 0 13px 0;
-    background-color: transparent;
-    margin-bottom: 20px;
-
-    &__image {
-        width: 113.33px;
-        height: 17px;
-        // color: #181818;
-        background-image: var(--logo-img);
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-}
-
 .burger {
     width: 20px;
     height: 36px;
@@ -29,7 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    margin-top: 28px;
+    // margin-top: 28px;
 
     &__line {
         display: inline-block;

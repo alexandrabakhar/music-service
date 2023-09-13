@@ -1,4 +1,3 @@
-import logo from '../../assets/img/logo_modal.png';
 import s from './login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -17,6 +16,7 @@ import {
     setRefresh,
 } from '../../redux/slices/user';
 import { useEffect, useState } from 'react';
+import { Logo } from '../../components/Logo/Logo';
 
 export const LoginPage = () => {
     const navigate = useNavigate();
@@ -80,7 +80,7 @@ export const LoginPage = () => {
                     className={s['form-login']}
                     onSubmit={handleSubmit(onFormSubmit)}
                 >
-                    <img src={logo} className={s.logo} alt="logo" />
+                    <Logo />
 
                     <input
                         placeholder="Логин"

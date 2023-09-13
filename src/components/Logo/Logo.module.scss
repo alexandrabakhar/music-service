@@ -1,0 +1,42 @@
+.logo {
+    background-color: transparent;
+
+    display: block;
+    &__svg {
+        &-main {
+            max-width: 113.33px;
+            max-height: 17px;
+            fill: var(--color-logo);
+        }
+
+        &-auth {
+            max-width: 140.33px;
+            max-height: 21px;
+            fill: #000000;
+        }
+    }
+}
+.main {
+    padding: 14px 0 18px 0;
+    background-color: transparent;
+
+    display: block;
+    & svg {
+        max-width: 113.33px;
+        max-height: 17px;
+        fill: var(--color-logo);
+    }
+}
+
+.auth {
+    background-color: transparent;
+
+    display: block;
+    margin-bottom: 42px;
+
+    & svg {
+        max-width: 140.33px;
+        max-height: 21px;
+        fill: #000000;
+    }
+}

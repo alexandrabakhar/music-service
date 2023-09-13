@@ -1,7 +1,7 @@
 import React from 'react';
 const { useState } = React;
 
-import { NavLogo } from './navLogo/NavLogo';
+import { Logo } from '../../Logo/Logo';
 import { NavBurger } from './navBurger/NavBurger';
 import { NavMenu } from './navMenu/NavMenu';
 
@@ -16,7 +16,7 @@ export const MainNav = () => {
 
     return (
         <nav className={`${styles.nav} nav`}>
-            <NavLogo />
+            <Logo type="main" />
             <NavBurger onClick={toggleVisibility} />
             {visible && <NavMenu />}
         </nav>

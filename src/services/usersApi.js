@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://painassasin.online/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://skypro-music-api.skyeng.tech/' }),
     endpoints: (build) => ({
         signUp: build.mutation({
             query: (body) => ({

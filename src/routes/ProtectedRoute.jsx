@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectIsAuthenticated } from '../../store/slices/user';
+import { selectIsAuthenticated } from '../redux/slices/user';
 
 export const ProtectedRoute = ({ redirectPath = '/login' }) => {
     const isAuthenticated = useSelector(selectIsAuthenticated);

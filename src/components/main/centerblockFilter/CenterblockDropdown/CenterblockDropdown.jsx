@@ -3,7 +3,7 @@ import {
     setFilterAuthor,
     setFilterGenre,
     setFilterYear,
-} from '../../../../store/slices/filter';
+} from '../../../../redux/slices/filter';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import {
@@ -13,7 +13,7 @@ import {
     deleteAuthor,
     deleteGenre,
     deleteYear,
-} from '../../../../store/slices/filter';
+} from '../../../../redux/slices/filter';
 
 export const CenterblockDropdown = ({ content, type }) => {
     const dispatch = useDispatch();

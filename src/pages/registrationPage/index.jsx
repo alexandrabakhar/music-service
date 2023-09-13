@@ -1,15 +1,8 @@
-// import { Container } from '../../components/Container';
-
-// export const RegistrationPage = () => {
-//     return <Container modalType="signup" />;
-// };
-
-// import logo from '../../assets/images/logo-black.png';
 import logo from '../../assets/img/logo_modal.png';
 import s from './registration.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSignUpMutation } from '../../services/usersApi';
+import { useSignUpMutation } from '../../redux/services/usersApi';
 import { useState } from 'react';
 
 export const RegistrationPage = () => {

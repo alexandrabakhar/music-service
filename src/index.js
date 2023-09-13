@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './styles/themes.scss';
 import reportWebVitals from './components/reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { AppRoutes } from './routes';
+import { AppRoutes } from './routes/routes';
 import { ThemeProvider } from './providers/ThemeProvider';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store } from './redux/store';
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'));
 

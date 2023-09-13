@@ -1,12 +1,11 @@
-// import { App } from '../App';
 import { useParams } from 'react-router-dom';
 import { Main } from '../../components/main/Main';
 import { Bar } from '../../components/bar/Bar';
 import { Footer } from '../../components/footer/Footer';
 import styles from './collectionPage.module.scss';
-import { useGetPlaylistByUserIDQuery } from '../../services/catalog';
+import { useGetPlaylistByUserIDQuery } from '../../redux/services/catalogApi';
 import { useSelector } from 'react-redux';
-import { selectCurrentTrackId } from '../../store/slices/user';
+import { selectCurrentTrackId } from '../../redux/slices/user';
 
 export const CollectionPage = () => {
     const params = useParams();

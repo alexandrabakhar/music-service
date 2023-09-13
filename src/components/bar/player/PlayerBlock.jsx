@@ -1,8 +1,5 @@
 import styles from '../Bar.module.scss';
 import spriteSVG from '../../../assets/icon/sprite.svg';
-import { PlayerControls } from './PlayerControls';
-import { selectUserID } from '../../../store/slices/user';
-import { useSelector } from 'react-redux';
 import { HandlerStatusLike } from '../../handlerStatusLike/HandlerStatusLike';
 
 export const PlayerBlock = ({ track }) => {

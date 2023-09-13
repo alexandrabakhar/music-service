@@ -1,7 +1,6 @@
 import { MainNav } from './nav/MainNav';
-// import { MainCenterblock } from './centerblock/MainCenterblock';
 import { MainSidebar } from './sidebar/MainSidebar';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Main.module.scss';
 import { CenterblockSearch } from './centerblockSearch/CenterblockSearch';
 import { CenterblockFilter } from './centerblockFilter/CenterblockFilter';
@@ -12,7 +11,7 @@ import {
     selectGenre,
     selectSearch,
     selectYear,
-} from '../../store/slices/filter';
+} from '../../redux/slices/filter';
 
 export const Main = ({ pageType, tracksData, isLoading, heading }) => {
     const byAuthor = useSelector(selectAuthor);
@@ -21,7 +20,7 @@ export const Main = ({ pageType, tracksData, isLoading, heading }) => {
     const searchText = useSelector(selectSearch).toLowerCase();
 
     let filteredData = [...tracksData];
-    let filteredDataBySearch = [...tracksData]
+    let filteredDataBySearch = [...tracksData];
 
     if (byAuthor.length > 0) {
         filteredData = filteredData.filter(({ author }) =>

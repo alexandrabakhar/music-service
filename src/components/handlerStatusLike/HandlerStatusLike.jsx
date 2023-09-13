@@ -2,13 +2,12 @@ import spriteSVG from '../../assets/icon/sprite.svg';
 import {
     useSetLikeMutation,
     useSetUnlikeMutation,
-} from '../../services/catalog';
+} from '../../redux/services/catalogApi';
 import { useSelector } from 'react-redux';
-import { selectUserID } from '../../store/slices/user';
+import { selectUserID } from '../../redux/slices/user';
 
 import { useEffect, useState } from 'react';
 import styles from './HandlerStatusLike.module.scss';
-
 
 export const HandlerStatusLike = ({ track }) => {
     const [setLike] = useSetLikeMutation();
@@ -37,7 +36,6 @@ export const HandlerStatusLike = ({ track }) => {
             alt="like"
             onClick={handleSetLike}
             data-testid="handler-status-like"
-
         >
             <use xlinkHref={`${spriteSVG}#icon-like`}></use>
         </svg>

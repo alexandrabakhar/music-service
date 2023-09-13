@@ -1,6 +1,6 @@
 import styles from '../Main.module.scss';
 import spriteSVG from '../../../assets/icon/sprite.svg';
-import { setSearch } from '../../../store/slices/filter';
+import { setSearch } from '../../../redux/slices/filter';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 

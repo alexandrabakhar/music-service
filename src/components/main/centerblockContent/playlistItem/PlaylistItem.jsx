@@ -2,17 +2,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import styles from '../CenterblockContent.module.scss';
 import spriteSVG from '../../../../assets/icon/sprite.svg';
-import {
-    useSetLikeMutation,
-    useSetUnlikeMutation,
-} from '../../../../services/catalog';
-import { useSelector } from 'react-redux';
-import { selectUserID } from '../../../../store/slices/user';
 
-import { useEffect, useState } from 'react';
 import { HandlerStatusLike } from '../../../handlerStatusLike/HandlerStatusLike';
 import { useDispatch } from 'react-redux';
-import { setCurrentTrackId } from '../../../../store/slices/user';
+import { setCurrentTrackId } from '../../../../redux/slices/user';
 
 export const PlaylistItem = ({ track, isLoading }) => {
     const durationOnMinutes = (track['duration_in_seconds'] / 60).toFixed(2);

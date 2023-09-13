@@ -2,10 +2,10 @@ import { Main } from '../../components/main/Main';
 import { Bar } from '../../components/bar/Bar';
 import { Footer } from '../../components/footer/Footer';
 import styles from './playlistPage.module.scss';
-import { useGetAllTracksQuery } from '../../services/catalog';
-import { selectUserID } from '../../store/slices/user';
+import { useGetAllTracksQuery } from '../../redux/services/catalogApi';
+import { selectUserID } from '../../redux/slices/user';
 import { useSelector } from 'react-redux';
-import { selectCurrentTrackId } from '../../store/slices/user';
+import { selectCurrentTrackId } from '../../redux/slices/user';
 
 export const PlaylistPage = () => {
     const { data, isLoading } = useGetAllTracksQuery();

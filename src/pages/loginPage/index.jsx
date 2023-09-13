@@ -2,13 +2,12 @@ import logo from '../../assets/img/logo_modal.png';
 import s from './login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 
 import {
     useGetTokenMutation,
     useLoginMutation,
     useTokenRefreshMutation,
-} from '../../services/usersApi';
+} from '../../redux/services/usersApi';
 
 import { useDispatch } from 'react-redux';
 import {
@@ -16,7 +15,7 @@ import {
     setLogin,
     setLogout,
     setRefresh,
-} from '../../store/slices/user';
+} from '../../redux/slices/user';
 import { useEffect, useState } from 'react';
 
 export const LoginPage = () => {

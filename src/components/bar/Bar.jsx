@@ -1,5 +1,5 @@
 import styles from './Bar.module.scss';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { PlayerProgress } from './player/PlayerProgress';
 import { PlayerBlock } from './player/PlayerBlock';
 import { useEffect } from 'react';
@@ -7,7 +7,7 @@ import { useAudio } from 'react-use';
 import { useDispatch } from 'react-redux';
 import spriteSVG from '../../assets/icon/sprite.svg';
 
-import { setCurrentTrackId } from '../../store/slices/user';
+import {setCurrentTrackId} from '../../redux/slices/user'
 
 export const Bar = ({ tracks, currentTrackId }) => {
     const dispatch = useDispatch();

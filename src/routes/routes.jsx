@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import { CollectionPage } from './pages/collectionPage';
-import { LoginPage } from './pages/loginPage';
-import { MainPage } from './pages/mainPage';
-import { PlaylistPage } from './pages/playlistPage';
-import { RegistrationPage } from './pages/registrationPage';
-import { ProtectedRoute } from './components/protectedRoute/ProtectedRoute';
+import { CollectionPage } from '../pages/collectionPage';
+import { LoginPage } from '../pages/loginPage';
+import { MainPage } from '../pages/mainPage';
+import { PlaylistPage } from '../pages/playlistPage';
+import { RegistrationPage } from '../pages/registrationPage';
+import { ProtectedRoute } from './ProtectedRoute';
 
 export const AppRoutes = () => {
     return (

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userApi } from '../services/usersApi';
+import { userApi } from './services/usersApi';
 import userReducer from './slices/user';
-import { catalogApi } from '../services/catalog';
-import filterReducer from './slices/filter'
+import { catalogApi } from './services/catalogApi';
+import filterReducer from './slices/filter';
 
 export const store = configureStore({
     reducer: {

@@ -2,7 +2,7 @@ import styles from '../MainNav.module.scss';
 import { NavLink } from 'react-router-dom';
 import { ThemeSwitcher } from './themeSwitcher/ThemeSwitcher';
 import { useDispatch } from 'react-redux';
-import { setLogout } from '../../../../store/slices/user';
+import { setLogout } from '../../../../redux/slices/user';
 
 export const NavMenu = () => {
     const dispatch = useDispatch();

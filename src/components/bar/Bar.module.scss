@@ -76,15 +76,6 @@
 
     &:hover {
         height: 8px;
-        &::-webkit-slider-thumb {
-            appearance: none;
-            height: 28px;
-            width: 28px;
-
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 2px 0 #555;
-        }
     }
 }
 
@@ -257,5 +248,3 @@
     align-items: center;
     margin-left: 12%;
 }
-
-

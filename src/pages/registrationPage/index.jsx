@@ -10,7 +10,6 @@ export const RegistrationPage = () => {
     const { register, handleSubmit } = useForm();
     const [signUp, { isSuccess, isError, error }] = useSignUpMutation();
     let [errorText, setErrorText] = useState('');
-    // console.dir(register);
 
     const onFormSubmit = async (fields) => {
         setErrorText('');
@@ -18,7 +17,6 @@ export const RegistrationPage = () => {
             setErrorText('Пароль не совпадает.');
             return;
         }
-
 
         await signUp({
             username: fields.username,

@@ -13,6 +13,7 @@ export const CollectionPage = () => {
 
     const currentTrackId = useSelector(selectCurrentTrackId);
 
+    console.log(currentTrackId);
     const { data, isLoading } = useGetPlaylistByUserIDQuery(id);
     let tracksData = data;
 

@@ -38,6 +38,12 @@ const userSlice = createSlice({
                 isPlaying: false,
             };
         },
+        setIsPlaying: (state, { payload }) => {
+            return {
+                ...state,
+                isPlaying: payload,
+            };
+        },
     },
 });
 
@@ -47,6 +53,7 @@ export const {
     setCurrentTrackId,
     setAccess,
     setRefresh,
+    setIsPlaying
 } = userSlice.actions;
 export default userSlice.reducer;
 

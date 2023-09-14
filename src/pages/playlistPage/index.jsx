@@ -1,11 +1,13 @@
-import { Main } from '../../components/main/Main';
-import { Bar } from '../../components/bar/Bar';
+import { Centerblock } from '../../components/Centerblock/Centerblock';
+import { Player } from '../../components/Player/Player';
 import { Footer } from '../../components/footer/Footer';
 import styles from './playlistPage.module.scss';
 import { useGetAllTracksQuery } from '../../redux/services/catalogApi';
 import { selectUserID } from '../../redux/slices/user';
 import { useSelector } from 'react-redux';
 import { selectCurrentTrackId } from '../../redux/slices/user';
+import { Menu } from '../../components/Menu/Menu';
+import { HandlerLogout } from '../../components/HandlerLogout/HandlerLogout';
 
 export const PlaylistPage = () => {
     const { data, isLoading } = useGetAllTracksQuery();
@@ -20,17 +22,19 @@ export const PlaylistPage = () => {
         <div>Loading</div>
     ) : (
         <div className={styles.container}>
-            <Main
+            <Menu />
+            <Centerblock
                 pageType={'playlist'}
                 tracksData={tracksData}
                 isLoading={isLoading}
             />
             {currentTrackId !== null && (
-                <Bar
+                <Player
                     tracks={tracksData.items}
                     currentTrackId={currentTrackId}
                 />
             )}
+            <HandlerLogout />
             <Footer />
         </div>
     );

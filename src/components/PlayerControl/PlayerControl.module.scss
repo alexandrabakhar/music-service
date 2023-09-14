@@ -1,0 +1,70 @@
+.btn-prev,
+.btn-play,
+.btn-stop,
+.btn-next,
+.btn-repeat,
+.btn-shuffle,
+.btn-volume,
+.btn-volume-off {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+.btn-repeat,
+.btn-shuffle {
+    & .active {
+        stroke: var(--svg-color-active);
+        fill: var(--svg-color-active);
+    }
+}
+
+.btn-play-svg,
+.btn-stop-svg,
+.btn-prev-svg,
+.btn-next-svg,
+.btn-volume-svg,
+.btn-volume-off-svg {
+    width: 22px;
+    height: 20px;
+    stroke: var(--svg-player-color);
+    fill: var(--svg-player-color);
+    cursor: pointer;
+    &:hover {
+        stroke: #696969;
+        fill: #696969;
+    }
+}
+
+.btn-volume-svg,
+.btn-volume-off-svg {
+    width: 30px;
+    height: 28px;
+    stroke: var(--svg-player-color);
+    fill: var(--svg-player-color);
+    cursor: pointer;
+    &:hover {
+        stroke: #696969;
+        fill: #696969;
+    }
+}
+.btn-repeat-svg,
+.btn-shuffle-svg {
+    fill: var(--svg-color);
+    stroke: var(--svg-color);
+    width: 19px;
+    height: 12px;
+    cursor: pointer;
+    &:hover {
+        fill: var(--svg-color-hover);
+        stroke: var(--svg-color-hover);
+    }
+}
+
+.btn__svg-active {
+    fill: transparent;
+    stroke: var(--svg-color-active);
+}
+.track-play {
+    display: flex;
+    flex-direction: row;
+}

@@ -59,5 +59,8 @@ body {
     margin: 0 auto;
     position: relative;
     background-color: var(--background-container);
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 10% 90%;
 }
 

@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { Main } from '../../components/main/Main';
-import { Bar } from '../../components/bar/Bar';
+import { Centerblock } from '../../components/Centerblock/Centerblock';
+import { Player } from '../../components/Player/Player';
 import { Footer } from '../../components/footer/Footer';
 import styles from './collectionPage.module.scss';
 import { useGetPlaylistByUserIDQuery } from '../../redux/services/catalogApi';
 import { useSelector } from 'react-redux';
 import { selectCurrentTrackId } from '../../redux/slices/user';
+import { Menu } from '../../components/Menu/Menu';
+import { HandlerLogout } from '../../components/HandlerLogout/HandlerLogout';
 
 export const CollectionPage = () => {
     const params = useParams();
@@ -21,18 +23,22 @@ export const CollectionPage = () => {
         <div>Loading</div>
     ) : (
         <div className={styles.container}>
-            <Main
+            <Menu />
+
+            <Centerblock
                 pageType={'collection'}
                 tracksData={tracksData.items}
                 isLoading={isLoading}
                 heading={tracksData.name}
             />
             {currentTrackId !== null && (
-                <Bar
+                <Player
                     tracks={tracksData.items}
                     currentTrackId={currentTrackId}
                 />
             )}
+
+            <HandlerLogout />
 
             <Footer />
         </div>

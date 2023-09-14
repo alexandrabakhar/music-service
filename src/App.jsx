@@ -1,4 +1,4 @@
-import { Main } from './main/Main';
+import { Centerblock } from './main/Main';
 import { Bar } from './bar/Bar';
 import { Footer } from './footer/Footer';
 import { ModalBlock } from './modal/modalBlock/ModalBlock';
@@ -23,7 +23,7 @@ export const App = (props) => {
     }
     return (
         <div className={styles.container}>
-            <Main pageType={props.pageType} />
+            <CenterblockpageType={props.pageType} />
             <Bar />
             <Footer />
         </div>

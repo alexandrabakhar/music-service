@@ -1,0 +1,25 @@
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    grid-column: 2;
+    grid-row: span 2;
+    // изменила пэддинг с 111px на 0px и width с auto на 70vw
+}
+
+.centerblock {
+    max-width: 70vw;
+    flex-grow: 3;
+    padding: 20px 2vw 20px 2vw;
+
+    &__h2 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 72px;
+        letter-spacing: -0.8px;
+        margin-bottom: 45px;
+    }
+}
+
+
+

@@ -1,0 +1,24 @@
+.playlist {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 60vh;
+
+    //фон скроллбара
+    &::-webkit-scrollbar {
+        width: 4px; /* ширина всей полосы прокрутки */
+    }
+
+    //пустое пространство вокруг бегунка
+    &:hover::-webkit-scrollbar-track {
+        background: var(--background-scrollbar-track);
+        border-radius: 10px; /* цвет зоны отслеживания */
+        height: 65px;
+    }
+
+    //сам бегунок
+    &:hover::-webkit-scrollbar-thumb {
+        background: var(--background-scrollbar-thumb);
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,56 @@
+.progress {
+    --range-progress: 0;
+
+    grid-row: 1;
+    grid-column: span 3;
+
+    appearance: none;
+    position: relative;
+    background: #ccc;
+    width: 100%;
+    height: 5px;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+
+    background: var(--background-bar-progress);
+    background-image: linear-gradient(#b672ff, #b672ff);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+
+    transition: height 0.2s;
+    &::before {
+        content: '';
+        height: inherit;
+        background: #b672ff;
+        width: var(--range-progress);
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &:hover {
+            height: 8px;
+            background: #b672ff;
+        }
+    }
+
+    /* played progress length - firefox */
+    &::-moz-range-progress {
+        background: #b672ff;
+        border-radius: 0;
+        height: 5px;
+        &:hover {
+            height: 8px;
+        }
+    }
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        height: 0;
+        width: 0;
+    }
+
+    &:hover {
+        height: 8px;
+    }
+}

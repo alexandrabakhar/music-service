@@ -20,7 +20,7 @@ export const MainPage = () => {
         <div className={styles.container}>
             <Menu />
             <Centerblock pageType={'mainPage'} tracksData={tracksData} />
-            {currentTrackId !== null && (
+            {currentTrackId && (
                 <Player tracks={tracksData} currentTrackId={currentTrackId} />
             )}
             <HandlerLogout />

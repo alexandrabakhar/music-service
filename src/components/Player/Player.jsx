@@ -15,14 +15,17 @@ export const Player = ({ tracks, currentTrackId }) => {
     const [isShuffle, setShuffle] = useState(false);
     const [isRepeat, setRepeat] = useState(false);
 
+    if (!currentTrackId) return;
     let ind = tracks.findIndex((track) => track.id === currentTrackId);
 
-    if (ind < 0) {
+    if (currentTrackId !== null && ind < 0) {
         ind = 0;
     }
 
     useEffect(() => {
-        dispatch(setCurrentTrackId({ currentId: tracks[ind].id }));
+        if (currentTrackId !== null) {
+            dispatch(setCurrentTrackId({ currentId: tracks[ind].id }));
+        }
     }, [currentTrackId, ind, tracks]);
 
     const playingTrack = tracks[ind];
@@ -60,32 +63,34 @@ export const Player = ({ tracks, currentTrackId }) => {
     };
 
     return (
-        <div className={S.player}>
-            {audio}
-            <PlayerTrackProgress state={state} controls={controls} />
-            <div className={S.controls}>
-                <PlayerControl type="prev" onClick={handlePrev} />
-                {state.playing ? (
-                    <PlayerControl type={'stop'} onClick={controls.pause} />
-                ) : (
-                    <PlayerControl type={'play'} onClick={controls.play} />
-                )}
-                <PlayerControl type="next" onClick={handleNext} />
+        currentTrackId !== null && (
+            <div className={S.player}>
+                {audio}
+                <PlayerTrackProgress state={state} controls={controls} />
+                <div className={S.controls}>
+                    <PlayerControl type="prev" onClick={handlePrev} />
+                    {state.playing ? (
+                        <PlayerControl type={'stop'} onClick={controls.pause} />
+                    ) : (
+                        <PlayerControl type={'play'} onClick={controls.play} />
+                    )}
+                    <PlayerControl type="next" onClick={handleNext} />
 
-                <PlayerControl
-                    type="repeat"
-                    onClick={() => setRepeat(!isRepeat)}
-                    isActive={isRepeat}
-                />
+                    <PlayerControl
+                        type="repeat"
+                        onClick={() => setRepeat(!isRepeat)}
+                        isActive={isRepeat}
+                    />
 
-                <PlayerControl
-                    type="shuffle"
-                    onClick={() => setShuffle(!isShuffle)}
-                    isActive={isShuffle}
-                />
+                    <PlayerControl
+                        type="shuffle"
+                        onClick={() => setShuffle(!isShuffle)}
+                        isActive={isShuffle}
+                    />
+                </div>
+                <PlayerTrackInfo track={playingTrack} />
+                <PlayerTrackVolume state={state} controls={controls} />
             </div>
-            <PlayerTrackInfo track={playingTrack} />
-            <PlayerTrackVolume state={state} controls={controls} />
-        </div>
+        )
     );
 };

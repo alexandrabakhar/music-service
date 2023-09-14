@@ -15,7 +15,6 @@ export const CollectionPage = () => {
 
     const currentTrackId = useSelector(selectCurrentTrackId);
 
-    console.log(currentTrackId);
     const { data, isLoading } = useGetPlaylistByUserIDQuery(id);
     let tracksData = data;
 
@@ -31,7 +30,7 @@ export const CollectionPage = () => {
                 isLoading={isLoading}
                 heading={tracksData.name}
             />
-            {currentTrackId !== null && (
+            {currentTrackId && (
                 <Player
                     tracks={tracksData.items}
                     currentTrackId={currentTrackId}

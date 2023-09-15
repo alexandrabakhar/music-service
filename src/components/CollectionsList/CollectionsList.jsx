@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import S from './CollectionsList.module.scss';
 
-import { setCurrentTrackId, setIsPlaying } from '../../redux/slices/user';
+import { setCurrentTrackId } from '../../redux/slices/user';
 
 export const CollectionsList = () => {
     const navigate = useNavigate();

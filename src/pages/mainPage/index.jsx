@@ -19,12 +19,13 @@ export const MainPage = () => {
     ) : (
         <div className={styles.container}>
             <Menu />
+            <CollectionsList />
+
             <Centerblock pageType={'mainPage'} tracksData={tracksData} />
             {currentTrackId && (
                 <Player tracks={tracksData} currentTrackId={currentTrackId} />
             )}
             <HandlerLogout />
-            <CollectionsList />
 
             <Footer />
         </div>

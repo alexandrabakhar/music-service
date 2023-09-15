@@ -11,16 +11,15 @@ export const FilterMenu = ({ tracksData }) => {
     const [dropdownType, setDropdownType] = useState('');
 
     const menuRef = useRef();
+    const closeDropdown = (event) => {
+        const target = event.target;
+
+        if (!menuRef.current.contains(target)) {
+            setOpen(false);
+        }
+    };
 
     useEffect(() => {
-        const closeDropdown = (event) => {
-            const target = event.target;
-
-            if (!menuRef.current.contains(target)) {
-                setOpen(false);
-            }
-        };
-
         document.addEventListener('mousedown', closeDropdown);
 
         return () => {
@@ -39,10 +38,6 @@ export const FilterMenu = ({ tracksData }) => {
         setTop(targetTop);
         const targetLeft = target.getBoundingClientRect().left;
         setLeft(targetLeft);
-
-        const targetClass = target.classList[2];
-        setDropdownContent(targetClass);
-        console.log(targetClass);
 
         setOpen(true);
 

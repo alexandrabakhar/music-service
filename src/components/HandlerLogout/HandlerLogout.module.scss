@@ -14,10 +14,10 @@
 .btn-logout-svg {
     width: 40px;
     height: 40px;
-    stroke: var(--svg-logout-color);
+    stroke: var(--svg-icon-color);
     cursor: pointer;
+    transition: stroke 0.3s;
     &:hover {
-        stroke: #d9b6ff;
+        stroke: var(--svg-icon-hover);
     }
 }
-

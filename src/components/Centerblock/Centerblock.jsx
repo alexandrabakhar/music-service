@@ -76,7 +76,7 @@ export const Centerblock = ({ pageType, tracksData, isLoading, heading }) => {
 
                     <Playlist
                         isLoading={isLoading}
-                        tracksData={filteredDataBySearch}
+                        tracksData={filteredData}
                     />
                 </div>
             </main>

@@ -9,13 +9,6 @@ export const HandlerThemeSwitch = () => {
     const changeTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
-
-    const getIconType = () => {
-        let iconType;
-        theme === 'light' ? (iconType = 'icon-day') : (iconType = 'icon-night');
-
-        return iconType;
-    };
     return (
         <li className={S['menu__item']}>
             <svg
@@ -25,7 +18,9 @@ export const HandlerThemeSwitch = () => {
                 onClick={changeTheme}
             >
                 <use
-                    xlinkHref={`${switchSVG}#${getIconType()}`}
+                    xlinkHref={`${switchSVG}#icon-${
+                        theme === 'light' ? 'day' : 'night'
+                    }`}
                     data-testid="theme-switcher-use"
                 ></use>
             </svg>

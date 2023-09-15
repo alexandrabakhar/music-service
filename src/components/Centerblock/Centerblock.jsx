@@ -65,55 +65,22 @@ export const Centerblock = ({ pageType, tracksData, isLoading, heading }) => {
             break;
     }
 
-    if (pageType === 'mainPage') {
-        return (
-            <main className={S.main}>
-                <div className={`${S.centerblock} centerblock`}>
-                    <Search />
-                    <h2 className="centerblock__h2">ТРЕКИ</h2>
-                    <FilterMenu tracksData={tracksData} />
-                    <PlaylistTitles />
+    return (
+        <main className={S.centerblock}>
+            <Search />
+            <h2 className="centerblock__h2">ТРЕКИ</h2>
 
-                    <Playlist
-                        isLoading={isLoading}
-                        tracksData={filteredData}
-                    />
-                </div>
-            </main>
-        );
-    }
+            {pageType === 'mainPage' && <FilterMenu tracksData={tracksData} />}
+            <PlaylistTitles />
 
-    if (pageType === 'playlist') {
-        return (
-            <main className={S.main}>
-                <div className={`${S.centerblock} centerblock`}>
-                    <Search />
-                    <h2 className="centerblock__h2">Мои треки</h2>
-                    <PlaylistTitles />
-
-                    <Playlist
-                        isLoading={isLoading}
-                        tracksData={filteredDataBySearch}
-                    />
-                </div>
-            </main>
-        );
-    }
-
-    if (pageType === 'collection') {
-        return (
-            <main className={S.main}>
-                <div className={`${S.centerblock} centerblock`}>
-                    <Search />
-                    <h2 className="centerblock__h2">{heading}</h2>
-
-                    <PlaylistTitles />
-                    <Playlist
-                        isLoading={isLoading}
-                        tracksData={filteredDataBySearch}
-                    />
-                </div>
-            </main>
-        );
-    }
+            <Playlist
+                isLoading={isLoading}
+                tracksData={
+                    pageType === 'mainPage'
+                        ? filteredData
+                        : filteredDataBySearch
+                }
+            />
+        </main>
+    );
 };

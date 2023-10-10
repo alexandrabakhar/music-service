@@ -59,7 +59,6 @@ export const Login = () => {
             localStorage.setItem('refresh', tokenData.refresh);
             navigate('/');
         } catch (e) {
-            console.error(e.data.detail);
             setAuthError(e.data.detail);
         }
     };

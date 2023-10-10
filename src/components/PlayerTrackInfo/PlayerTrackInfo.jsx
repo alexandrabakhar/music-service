@@ -1,6 +1,6 @@
 import styles from './PlayerTrackInfo.module.scss';
 import spriteSVG from '../../assets/icon/sprite.svg';
-import { HandlerStatusLike } from '../handlerStatusLike/HandlerStatusLike';
+import { SwitcherStatusLike } from '../SwitcherStatusLike/SwitcherStatusLike';
 
 export const PlayerTrackInfo = ({ track }) => {
     const { name, author } = track;
@@ -25,7 +25,7 @@ export const PlayerTrackInfo = ({ track }) => {
             </div>
 
             <div className={`${styles['like']}`}>
-                <HandlerStatusLike track={track} />
+                <SwitcherStatusLike track={track} />
             </div>
         </div>
     );

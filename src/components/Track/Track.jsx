@@ -1,4 +1,3 @@
-import 'react-loading-skeleton/dist/skeleton.css';
 import S from './Track.module.scss';
 import spriteSVG from '../../assets/icon/sprite.svg';
 

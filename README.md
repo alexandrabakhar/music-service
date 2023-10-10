@@ -25,3 +25,5 @@
 2. Установите зависимости: npm install
 3. Запустите проект: npm run start
 4. Откройте веб-браузер и перейдите по адресу http://localhost:3000/
+
+### Использован бэк https://github.com/skypro-web-developer/webdev-react-hw-template/blob/main/API.md

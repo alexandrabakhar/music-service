@@ -2,7 +2,7 @@ import s from './Registration.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSignUpMutation } from '../../redux/services/usersApi';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Logo } from '../../components/Logo/Logo';
 
 export const Registration = () => {
@@ -13,8 +13,17 @@ export const Registration = () => {
 
     const onFormSubmit = async (fields) => {
         setErrorText('');
+
+        const EMAIL_REGEXP =
+            /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+        if (!EMAIL_REGEXP.test(fields.username)) {
+            setErrorText('Неверный формат логина!');
+            return;
+        }
+
         if (fields.password !== fields.repeatPassword) {
-            setErrorText('Пароль не совпадает.');
+            setErrorText('Пароли не совпадают.');
             return;
         }
 
@@ -24,16 +33,18 @@ export const Registration = () => {
             email: fields.username,
         });
     };
-    console.dir(handleSubmit);
-    console.log(isError);
-    console.log(error);
+    useEffect(() => {
+        if (isError) {
+            setErrorText(...Object.values(error.data));
+        }
+    }, [error]);
+
     if (isSuccess) navigate('/login');
 
     return (
         <div className={s.container}>
             <div className={s.block}>
                 <form
-                    // onSubmit={(e) => e.preventDefault()}
                     onSubmit={handleSubmit(onFormSubmit)}
                     className={s['form-login']}
                     method="POST"
@@ -61,10 +72,7 @@ export const Registration = () => {
                         {...register('repeatPassword')}
                     />
 
-                    <div className={s.info}>
-                        {errorText}
-                        {/* {isError && <div>Ошибка данных формы.</div>} */}
-                    </div>
+                    <div className={s.info}>{errorText}</div>
                     <button type="submit" className={`${s['btn-signup-ent']}`}>
                         Зарегистрироваться
                     </button>
@@ -73,4 +81,3 @@ export const Registration = () => {
         </div>
     );
 };
-

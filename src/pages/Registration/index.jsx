@@ -1,11 +1,11 @@
-import s from './registration.module.scss';
+import s from './Registration.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useSignUpMutation } from '../../redux/services/usersApi';
 import { useState } from 'react';
 import { Logo } from '../../components/Logo/Logo';
 
-export const RegistrationPage = () => {
+export const Registration = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [signUp, { isSuccess, isError, error }] = useSignUpMutation();
@@ -74,4 +74,3 @@ export const RegistrationPage = () => {
     );
 };
 
-export default RegistrationPage;

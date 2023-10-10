@@ -1,4 +1,4 @@
-import s from './login.module.scss';
+import S from './Login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -13,7 +13,7 @@ import { setAccess, setLogin, setLogout } from '../../redux/slices/user';
 import { useEffect, useState } from 'react';
 import { Logo } from '../../components/Logo/Logo';
 
-export const LoginPage = () => {
+export const Login = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [login, { isError: isErrorLogin }] = useLoginMutation();
@@ -69,10 +69,10 @@ export const LoginPage = () => {
     };
 
     return (
-        <div className={s.container}>
-            <div className={s.block}>
+        <div className={S.container}>
+            <div className={S.block}>
                 <form
-                    className={s['form-login']}
+                    className={S['form-login']}
                     onSubmit={handleSubmit(onFormSubmit)}
                 >
                     <Logo />
@@ -81,21 +81,21 @@ export const LoginPage = () => {
                         placeholder="Логин"
                         type="text"
                         required
-                        className={s.input}
+                        className={S.input}
                         {...register('email')}
                     />
                     <input
                         placeholder="Пароль"
                         type="password"
                         required
-                        className={s.input}
+                        className={S.input}
                         {...register('password')}
                     />
                     {isErrorLogin ? (
-                        <p className={s.error}>{authError}</p>
+                        <p className={S.error}>{authError}</p>
                     ) : null}
                     <button
-                        className={s['btn-enter']}
+                        className={S['btn-enter']}
                         id="btnEnter"
                         type="submit"
                     >
@@ -103,7 +103,7 @@ export const LoginPage = () => {
                     </button>
 
                     <button
-                        className={s['btn-signup']}
+                        className={S['btn-signup']}
                         id="btnSignUp"
                         onClick={handleRegistrationButtonClick}
                     >

@@ -1,25 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
-import { CollectionPage } from '../pages/collectionPage';
-import { LoginPage } from '../pages/loginPage';
-import { MainPage } from '../pages/mainPage';
-import { PlaylistPage } from '../pages/playlistPage';
-import { RegistrationPage } from '../pages/registrationPage';
+import { Collection } from '../pages/Collection';
+import { Login } from '../pages/Login';
+import { Main } from '../pages/Main/index';
+import { Favorites } from '../pages/Favorites';
+import { Registration } from '../pages/Registration';
 import { ProtectedRoute } from './ProtectedRoute';
+import { NotFound } from '../pages/NotFound/NotFound';
 
 export const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/registration" element={<RegistrationPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
 
 
             <Route element={<ProtectedRoute />}>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/playlist" element={<PlaylistPage />} />
-                <Route path="/collection/:id" element={<CollectionPage />} />
+                <Route path="/" element={<Main />} />
+                <Route path="/playlist" element={<Favorites />} />
+                <Route path="/collection/:id" element={<Collection />} />
             </Route>
 
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 };

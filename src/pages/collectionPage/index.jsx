@@ -1,40 +1,45 @@
-// import { App } from '../App';
 import { useParams } from 'react-router-dom';
-import { Main } from '../../components/main/Main';
-import { Bar } from '../../components/bar/Bar';
-import { Footer } from '../../components/footer/Footer';
+import { Centerblock } from '../../components/Centerblock/Centerblock';
+import { Player } from '../../components/Player/Player';
 import styles from './collectionPage.module.scss';
-import { useGetPlaylistByUserIDQuery } from '../../services/catalog';
-import { useSelector } from 'react-redux';
-import { selectCurrentTrackId } from '../../store/slices/user';
+import { useGetCollectionByIdQuery } from '../../redux/services/catalogApi';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    selectCurrentTrackId,
+    setCurrentTrackId,
+} from '../../redux/slices/user';
+import { Menu } from '../../components/Menu/Menu';
+import { HandlerLogout } from '../../components/HandlerLogout/HandlerLogout';
+import { useEffect } from 'react';
 
 export const CollectionPage = () => {
     const params = useParams();
     const id = Number(params.id);
-
+    const dispatch = useDispatch();
     const currentTrackId = useSelector(selectCurrentTrackId);
 
-    const { data, isLoading } = useGetPlaylistByUserIDQuery(id);
-    let tracksData = data;
+    const { data, isLoading, isSuccess } = useGetCollectionByIdQuery(id);
+    let tracksData = [];
+    if (isSuccess) tracksData = data.items;
 
-    return isLoading ? (
-        <div>Loading</div>
-    ) : (
+    useEffect(() => {
+        dispatch(setCurrentTrackId({ currentTrackId: null }));
+    }, []); //удаляем currentTrackId из store и убираем плеер при загрузке страницы
+
+    return (
         <div className={styles.container}>
-            <Main
-                pageType={'collection'}
-                tracksData={tracksData.items}
+            <Menu />
+
+            <Centerblock
+                tracksData={tracksData}
                 isLoading={isLoading}
-                heading={tracksData.name}
+                heading={data}
             />
-            {currentTrackId !== null && (
-                <Bar
-                    tracks={tracksData.items}
-                    currentTrackId={currentTrackId}
-                />
+            {currentTrackId && (
+                <Player tracks={tracksData} currentTrackId={currentTrackId} />
             )}
 
-            <Footer />
+            <HandlerLogout />
         </div>
     );
 };

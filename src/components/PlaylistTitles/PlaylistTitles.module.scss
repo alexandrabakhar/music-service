@@ -1,0 +1,42 @@
+.titles {
+    display: grid;
+    grid-template-columns: 35% 30% 25% 10%;
+
+    padding-bottom: 16px;
+    padding-top: 18px;
+}
+
+.col {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 2px;
+    color: var(--text-color-translucent);
+    text-transform: uppercase;
+
+    &01 {
+        grid-column: 1;
+        padding-left: 6px;
+    }
+
+    &02 {
+        grid-column: 2;
+    }
+
+    &03 {
+        grid-column: 3;
+    }
+
+    &04 {
+        grid-column: 4;
+        text-align: center;
+    }
+}
+
+.svg {
+    width: 12px;
+    height: 12px;
+    fill: transparent;
+    stroke: #696969;
+}

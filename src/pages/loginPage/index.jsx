@@ -1,49 +1,43 @@
-import logo from '../../assets/img/logo_modal.png';
 import s from './login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 
 import {
+    useGetAccessByRefreshMutation,
     useGetTokenMutation,
     useLoginMutation,
-    useTokenRefreshMutation,
-} from '../../services/usersApi';
+} from '../../redux/services/usersApi';
 
 import { useDispatch } from 'react-redux';
-import {
-    setAccess,
-    setLogin,
-    setLogout,
-    setRefresh,
-} from '../../store/slices/user';
+import { setAccess, setLogin, setLogout } from '../../redux/slices/user';
 import { useEffect, useState } from 'react';
+import { Logo } from '../../components/Logo/Logo';
 
 export const LoginPage = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [login, { isError: isErrorLogin }] = useLoginMutation();
     const [getToken] = useGetTokenMutation();
-    const [tokenRefresh] = useTokenRefreshMutation();
+    const [getAccessByRefresh] = useGetAccessByRefreshMutation();
+
     const dispatch = useDispatch();
     const [authError, setAuthError] = useState('');
 
     const getAccess = async (string) => {
-        tokenRefresh({ refresh: string })
+        getAccessByRefresh({ refresh: string })
             .unwrap()
             .then((data) => {
-                dispatch(setLogin({ id: localStorage.getItem('userID') }));
-                dispatch(setRefresh({ refresh: string }));
+                dispatch(setLogin({ userID: +localStorage.getItem('userID') }));
                 dispatch(setAccess({ access: data.access }));
+
                 navigate('/');
             })
             .catch((e) => {
                 setLogout();
                 localStorage.clear();
-                console.error(e.data.detail);
+                console.error(e);
             });
     };
-
     useEffect(() => {
         const storageRefresh = localStorage.getItem('refresh');
         if (!storageRefresh) return;
@@ -55,12 +49,12 @@ export const LoginPage = () => {
         try {
             const responseLogin = await login({ ...fields }).unwrap();
 
-            dispatch(setLogin({ id: responseLogin.id }));
+            dispatch(setLogin({ userID: responseLogin.id }));
             localStorage.setItem('userID', responseLogin.id);
 
             const responseToken = await getToken({ ...fields });
             const tokenData = responseToken.data;
-            dispatch(setRefresh({ refresh: tokenData.refresh }));
+
             dispatch(setAccess({ access: tokenData.access }));
             localStorage.setItem('refresh', tokenData.refresh);
             navigate('/');
@@ -81,7 +75,7 @@ export const LoginPage = () => {
                     className={s['form-login']}
                     onSubmit={handleSubmit(onFormSubmit)}
                 >
-                    <img src={logo} className={s.logo} alt="logo" />
+                    <Logo />
 
                     <input
                         placeholder="Логин"

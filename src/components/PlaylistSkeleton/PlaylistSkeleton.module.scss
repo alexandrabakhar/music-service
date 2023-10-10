@@ -1,0 +1,7 @@
+.container {
+    & div {
+        height: 57px;
+        margin-bottom: 6px;
+        background-color: var(--background-playlistItem-hover);
+    }
+}

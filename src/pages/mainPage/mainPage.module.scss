@@ -1,55 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-a,
-a:visited {
-    text-decoration: none;
-    font-family: 'StratosSkyeng', sans-serif;
-    cursor: pointer;
-}
-
-button,
-._btn {
-    cursor: pointer;
-}
-
-ul li {
-    list-style: none;
-}
-
-@font-face {
-    font-family: 'StratosSkyeng';
-    src: local('StratosSkyeng'), local('StratosSkyeng'),
-        url('../../assets/fonts/StratosSkyeng/Stratos-Regular.woff2')
-            format('woff2'),
-        url('../../assets/fonts/StratosSkyeng/Stratos-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-
-//--------------------------
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    font-family: 'StratosSkyeng', sans-serif;
-    color: var(--text-color-main);
-    overflow-y: hidden;
-}
-
 .wrapper {
     width: 100%;
     min-height: 100%;
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--background-wrapper);
 }
 
@@ -59,5 +11,7 @@ body {
     margin: 0 auto;
     position: relative;
     background-color: var(--background-container);
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 10% 90%;
 }
-

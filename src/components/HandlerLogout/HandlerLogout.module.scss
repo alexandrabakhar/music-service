@@ -1,0 +1,23 @@
+.btn-logout {
+    grid-column: 3;
+    grid-row: 1;
+
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.btn-logout-svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--svg-icon-color);
+    cursor: pointer;
+    transition: stroke 0.3s;
+    &:hover {
+        stroke: var(--svg-icon-hover);
+    }
+}

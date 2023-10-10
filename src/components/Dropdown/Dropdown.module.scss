@@ -1,0 +1,78 @@
+
+.dropdownItem {
+    display: flex;
+}
+
+.dropdownItem span {
+    width: 119px;
+    // height: 24px;
+
+    font-family: 'StratosSkyeng', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    transition: 0.2s all;
+    &:hover {
+        color: #ad61ff;
+        text-decoration: underline;
+    }
+    &:active {
+        color: #ad61ff;
+        text-decoration: underline;
+    }
+}
+
+.selected span {
+    color: #ad61ff;
+    text-decoration: underline;
+}
+
+.dropdown__radio-div {
+    min-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    text-align: center;
+
+}
+
+.dropdown__radio-div input {
+    display: none;
+}
+
+.dropdown__radio-div label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+
+}
+.dropdown__radio-div label::before {
+    text-align: center;
+
+    width: 18px;
+    height: 18px;
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    background: var(--ellipse);
+    cursor: pointer;
+}
+
+
+.dropdown__radio-div input:checked + label::before {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    content: '';
+    display: inline-block;
+    background: var(--filled-ellipse);
+}
+
+

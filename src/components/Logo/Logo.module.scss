@@ -1,0 +1,30 @@
+.main {
+    padding: 14px 0 18px 0;
+    background-color: transparent;
+
+    cursor: default;
+    display: block;
+    & svg {
+        cursor: pointer;
+
+        max-width: 113.33px;
+        max-height: 17px;
+        fill: var(--color-logo);
+    }
+}
+
+.auth {
+    background-color: transparent;
+
+    display: block;
+    margin-bottom: 42px;
+    cursor: default;
+
+
+    & svg {
+        cursor: pointer;
+        max-width: 140.33px;
+        max-height: 21px;
+        fill: #000000;
+    }
+}

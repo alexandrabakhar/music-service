@@ -1,23 +1,15 @@
-// import { Container } from '../../components/Container';
-
-// export const RegistrationPage = () => {
-//     return <Container modalType="signup" />;
-// };
-
-// import logo from '../../assets/images/logo-black.png';
-import logo from '../../assets/img/logo_modal.png';
 import s from './registration.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSignUpMutation } from '../../services/usersApi';
+import { useSignUpMutation } from '../../redux/services/usersApi';
 import { useState } from 'react';
+import { Logo } from '../../components/Logo/Logo';
 
 export const RegistrationPage = () => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [signUp, { isSuccess, isError, error }] = useSignUpMutation();
     let [errorText, setErrorText] = useState('');
-    // console.dir(register);
 
     const onFormSubmit = async (fields) => {
         setErrorText('');
@@ -25,7 +17,6 @@ export const RegistrationPage = () => {
             setErrorText('Пароль не совпадает.');
             return;
         }
-
 
         await signUp({
             username: fields.username,
@@ -47,8 +38,7 @@ export const RegistrationPage = () => {
                     className={s['form-login']}
                     method="POST"
                 >
-                    <img src={logo} className={s.logo} alt="logo" />
-
+                    <Logo type="auth" />
                     <input
                         placeholder="Логин"
                         type="text"

@@ -1,0 +1,15 @@
+.btn__switch-svg {
+    height: 40px;
+    width: 39px;
+    fill: transparent;
+    cursor: pointer;
+    stroke: var(--svg-icon-color);
+    fill: var(--svg-icon-color);
+
+    transition: all 0.3s;
+
+    &:hover {
+        stroke: var(--svg-icon-hover);
+        fill: var(--svg-icon-hover);
+    }
+}

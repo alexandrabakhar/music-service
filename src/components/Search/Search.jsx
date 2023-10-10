@@ -18,7 +18,7 @@ export const Search = () => {
                 <use xlinkHref={`${spriteSVG}#icon-search`}></use>
             </svg>
             <input
-                className={S.text}
+                className={S.input}
                 type="search"
                 placeholder="Поиск"
                 name="search"

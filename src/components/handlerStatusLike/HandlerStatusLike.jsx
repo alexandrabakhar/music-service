@@ -3,21 +3,22 @@ import {
     useSetLikeMutation,
     useSetUnlikeMutation,
 } from '../../redux/services/catalogApi';
-import { useSelector } from 'react-redux';
-import { selectUserID } from '../../redux/slices/user';
 
 import { useEffect, useState } from 'react';
 import styles from './HandlerStatusLike.module.scss';
+import { useSelector } from 'react-redux';
+import { selectUserID } from '../../redux/slices/user';
 
 export const HandlerStatusLike = ({ track }) => {
     const [setLike] = useSetLikeMutation();
     const [setUnlike] = useSetUnlikeMutation();
+
     const userID = useSelector(selectUserID);
+
     const staredUsers = track['stared_user'];
 
     const [isFavorite, setFavorite] = useState(false);
 
-    //есть проблема с авторизацией после какого-то количества времени
     useEffect(() => {
         setFavorite(staredUsers.some((user) => user.id === userID));
     }, [track]);

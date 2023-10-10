@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import S from './FilterMenu.module.scss';
 
-export const FilterMenu = ({ tracksData }) => {
+export const FilterMenu = ({ tracksData, isLoading }) => {
     const [open, setOpen] = useState(false);
     const [top, setTop] = useState(0);
     const [left, setLeft] = useState(0);
@@ -30,7 +30,7 @@ export const FilterMenu = ({ tracksData }) => {
     const openDropdown = (event) => {
         const target = event.target;
 
-        if (!target.classList.contains('filter__button')) {
+        if (target.type !== 'button') {
             return;
         }
 
@@ -67,11 +67,7 @@ export const FilterMenu = ({ tracksData }) => {
     };
 
     return (
-        <div
-            className={`${S.filter} filter`}
-            onClick={openDropdown}
-            ref={menuRef}
-        >
+        <div className={S.filter} onClick={openDropdown} ref={menuRef}>
             <div
                 style={coords}
                 className={`${S['dropdown-menu']} ${
@@ -82,27 +78,33 @@ export const FilterMenu = ({ tracksData }) => {
             </div>
             <div className={S.title}>Искать по:</div>
 
-            <div
+            <button
                 tabIndex={0}
-                className={`filter__button ${S.button} button-author ${S['_btn-text']}`}
+                className={S.button}
                 id="button-author"
+                type="button"
+                disabled={isLoading || (tracksData.length === 0 && 'disabled')}
             >
                 исполнителю
-            </div>
-            <div
+            </button>
+            <button
                 tabIndex={0}
-                className={`filter__button ${S.button} button-year ${S['_btn-text']}`}
+                className={S.button}
                 id="button-year"
+                type="button"
+                disabled={isLoading || (tracksData.length === 0 && 'disabled')}
             >
                 году выпуска
-            </div>
-            <div
+            </button>
+            <button
                 tabIndex={0}
-                className={`filter__button ${S.button} button-genre ${S['_btn-text']}`}
+                className={S.button}
                 id="button-genre"
+                type="button"
+                disabled={isLoading || (tracksData.length === 0 && 'disabled')}
             >
                 жанру
-            </div>
+            </button>
         </div>
     );
 };

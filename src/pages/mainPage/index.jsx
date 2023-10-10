@@ -1,7 +1,6 @@
 import { Centerblock } from '../../components/Centerblock/Centerblock';
 import { Player } from '../../components/Player/Player';
-import { Footer } from '../../components/footer/Footer';
-import styles from './mainPage.module.scss';
+import S from './mainPage.module.scss';
 import { useGetAllTracksQuery } from '../../redux/services/catalogApi';
 import { useSelector } from 'react-redux';
 import { selectCurrentTrackId } from '../../redux/slices/user';
@@ -10,24 +9,25 @@ import { CollectionsList } from '../../components/CollectionsList/CollectionsLis
 import { HandlerLogout } from '../../components/HandlerLogout/HandlerLogout';
 
 export const MainPage = () => {
-    const { data, isLoading } = useGetAllTracksQuery();
-    const tracksData = data;
+    const { data: tracksData, isLoading } = useGetAllTracksQuery();
+
     const currentTrackId = useSelector(selectCurrentTrackId);
 
-    return isLoading ? (
-        <div>Loading</div>
-    ) : (
-        <div className={styles.container}>
+    return (
+        <div className={S.container}>
             <Menu />
             <CollectionsList />
 
-            <Centerblock pageType={'mainPage'} tracksData={tracksData} />
+            <Centerblock
+                tracksData={tracksData}
+                heading={'ТРЕКИ'}
+                isLoading={isLoading}
+            />
+
             {currentTrackId && (
                 <Player tracks={tracksData} currentTrackId={currentTrackId} />
             )}
             <HandlerLogout />
-
-            <Footer />
         </div>
     );
 };

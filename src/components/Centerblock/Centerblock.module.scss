@@ -3,13 +3,18 @@
     grid-row: span 2;
 
     padding: 20px 2vw 20px 2vw;
+}
+.heading {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: -0.8px;
+    margin-bottom: 20px;
+    &__skeleton {
+        height: 38px;
+        margin-bottom: 20px;
 
-    &__h2 {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 64px;
-        line-height: 72px;
-        letter-spacing: -0.8px;
-        margin-bottom: 45px;
+        background-color: var(--background-playlistItem-hover);
     }
 }

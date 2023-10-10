@@ -2,12 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     isAuthenticated: false,
-    username: null,
-    id: null,
+    userID: null,
     access: null,
-    refresh: null,
     currentTrackId: null,
-    isPlaying: false,
 };
 
 const userSlice = createSlice({
@@ -18,15 +15,10 @@ const userSlice = createSlice({
         setLogin: (state, { payload }) => {
             return {
                 ...state,
-                username: payload?.username,
-                id: payload.id,
+                userID: payload.userID,
                 isAuthenticated: true,
             };
         },
-        setRefresh: (state, { payload }) => ({
-            ...state,
-            refresh: payload.refresh,
-        }),
         setAccess: (state, { payload }) => ({
             ...state,
             access: payload.access,
@@ -34,30 +26,16 @@ const userSlice = createSlice({
         setCurrentTrackId: (state, { payload }) => {
             return {
                 ...state,
-                currentTrackId: payload.currentId,
-                isPlaying: false,
-            };
-        },
-        setIsPlaying: (state, { payload }) => {
-            return {
-                ...state,
-                isPlaying: payload,
+                currentTrackId: payload.currentTrackId,
             };
         },
     },
 });
 
-export const {
-    setLogout,
-    setLogin,
-    setCurrentTrackId,
-    setAccess,
-    setRefresh,
-    setIsPlaying
-} = userSlice.actions;
+export const { setLogout, setLogin, setCurrentTrackId, setAccess, setRefresh } =
+    userSlice.actions;
 export default userSlice.reducer;
 
-// это хук
 export const selectIsAuthenticated = (state) => state.user.isAuthenticated;
-export const selectUserID = (state) => state.user.id;
+export const selectUserID = (state) => state.user.userID;
 export const selectCurrentTrackId = (state) => state.user.currentTrackId;

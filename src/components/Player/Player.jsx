@@ -24,7 +24,7 @@ export const Player = ({ tracks, currentTrackId }) => {
 
     useEffect(() => {
         if (currentTrackId !== null) {
-            dispatch(setCurrentTrackId({ currentId: tracks[ind].id }));
+            dispatch(setCurrentTrackId({ currentTrackId: tracks[ind].id }));
         }
     }, [currentTrackId, ind, tracks]);
 
@@ -50,7 +50,7 @@ export const Player = ({ tracks, currentTrackId }) => {
             ind = getRandom();
         } else ind++;
         ind = ind > tracks.length - 1 ? null : tracks[ind].id;
-        dispatch(setCurrentTrackId({ currentId: ind }));
+        dispatch(setCurrentTrackId({ currentTrackId: ind }));
     };
 
     const handlePrev = () => {
@@ -59,7 +59,7 @@ export const Player = ({ tracks, currentTrackId }) => {
         } else ind--;
 
         ind = ind < 0 ? null : tracks[ind].id;
-        dispatch(setCurrentTrackId({ currentId: ind }));
+        dispatch(setCurrentTrackId({ currentTrackId: ind }));
     };
 
     return (

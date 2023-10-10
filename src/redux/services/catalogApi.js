@@ -4,7 +4,7 @@ export const catalogApi = createApi({
     reducerPath: 'catalogApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://skypro-music-api.skyeng.tech/',
-        tagTypes: ['Tracks', 'Playlist'],
+        tagTypes: ['Tracks', 'Collection'],
         prepareHeaders: (headers, { getState }) => {
             const token = getState().user.access;
 
@@ -15,38 +15,34 @@ export const catalogApi = createApi({
         },
     }),
     endpoints: (builder) => ({
-        getAllTracks: builder.query({
+        getAllTracks: builder.query({ //получение всех треков
             query: () => 'catalog/track/all/',
             providesTags: ['Tracks'],
         }),
-        getPlaylistByUserID: builder.query({
+        getCollectionById: builder.query({ //получение подборок по id подборки
             query: (id) => `catalog/selection/${id}/`,
-            providesTags: ['Playlist'],
+            providesTags: ['Collection'],
         }),
-        setLike: builder.mutation({
-            query: (id) => ({
+        setLike: builder.mutation({ //поставить лайк треку
+            query: (id) => ({ 
                 url: `catalog/track/${id}/favorite/`,
                 method: 'POST',
             }),
-            invalidatesTags: ['Tracks', 'Playlist'],
+            invalidatesTags: ['Tracks', 'Collection'],
         }),
-        setUnlike: builder.mutation({
+        setUnlike: builder.mutation({ //убрать лайк у трека
             query: (id) => ({
                 url: `catalog/track/${id}/favorite/`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['Tracks', 'Playlist'],
-        }),
-        getTrackByTrackID: builder.query({
-            query: (id) => `catalog/track/${id}`,
+            invalidatesTags: ['Tracks', 'Collection'],
         }),
     }),
 });
 
 export const {
     useGetAllTracksQuery,
-    useGetPlaylistByUserIDQuery,
+    useGetCollectionByIdQuery,
     useSetLikeMutation,
     useSetUnlikeMutation,
-    useGetTrackByTrackIDQuery,
 } = catalogApi;

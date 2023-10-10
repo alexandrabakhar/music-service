@@ -6,7 +6,7 @@ import { HandlerStatusLike } from '../handlerStatusLike/HandlerStatusLike';
 import { useDispatch } from 'react-redux';
 import { setCurrentTrackId } from '../../redux/slices/user';
 
-export const Track = ({ track, isLoading }) => {
+export const Track = ({ track }) => {
     const durationOnMinutes = (track['duration_in_seconds'] / 60).toFixed(2);
 
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const Track = ({ track, isLoading }) => {
     //есть проблема с авторизацией после какого-то количества времени
 
     const handleChooseTrack = () => {
-        dispatch(setCurrentTrackId({ currentId: track.id }));
+        dispatch(setCurrentTrackId({ currentTrackId: track.id }));
     };
     return (
         <div className={S.track} onClick={handleChooseTrack}>

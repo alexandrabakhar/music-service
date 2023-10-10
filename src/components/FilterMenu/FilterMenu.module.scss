@@ -21,30 +21,37 @@
     border: 1px solid var(--text-color-main);
     border-radius: 60px;
     padding: 6px 20px;
+    color: var(--text-color-main);
 
+    background-color: inherit;
     transition: 0.2s all;
+
+    &:disabled {
+        border-color: grey;
+        color: grey;
+        cursor: not-allowed;
+
+        &:hover {
+            color: grey;
+            border-color: grey;
+        }
+    }
 
     &:focus {
         border-color: #ad61ff;
         color: #ad61ff;
-        cursor: pointer;
-        
     }
     &:not(:last-child) {
         margin-right: 10px;
     }
-}
-
-._btn-text:hover {
-    border-color: #d9b6ff;
-    color: #d9b6ff;
-    cursor: pointer;
-}
-
-._btn-text:active {
-    border-color: #ad61ff;
-    color: #ad61ff;
-    cursor: pointer;
+    &:active {
+        border-color: #ad61ff;
+        color: #ad61ff;
+    }
+    &:hover {
+        border-color: #d9b6ff;
+        color: #d9b6ff;
+    }
 }
 
 .dropdown-div {
@@ -74,7 +81,6 @@
         background: var(--secondary-bg);
         transform: rotate(45deg);
     }
-    
 }
 
 .dropdown-menu.active {

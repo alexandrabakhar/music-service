@@ -3,17 +3,13 @@ import playlist2 from '../../assets/img/playlist02.png';
 import playlist3 from '../../assets/img/playlist03.png';
 
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import S from './CollectionsList.module.scss';
 
-import { setCurrentTrackId } from '../../redux/slices/user';
+import S from './CollectionsList.module.scss';
 
 export const CollectionsList = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const handlerCollectionGo = (collectionNumber) => {
-        dispatch(setCurrentTrackId({ currentTrackId: null }));
         navigate(`/collection/${collectionNumber}`);
     };
 

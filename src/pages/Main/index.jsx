@@ -1,6 +1,6 @@
 import { Centerblock } from '../../components/Centerblock/Centerblock';
 import { Player } from '../../components/Player/Player';
-import S from './mainPage.module.scss';
+import S from './Main.module.scss';
 import { useGetAllTracksQuery } from '../../redux/services/catalogApi';
 import { useSelector } from 'react-redux';
 import { selectCurrentTrackId } from '../../redux/slices/user';
@@ -8,7 +8,7 @@ import { Menu } from '../../components/Menu/Menu';
 import { CollectionsList } from '../../components/CollectionsList/CollectionsList';
 import { HandlerLogout } from '../../components/HandlerLogout/HandlerLogout';
 
-export const MainPage = () => {
+export const Main = () => {
     const { data: tracksData, isLoading } = useGetAllTracksQuery();
 
     const currentTrackId = useSelector(selectCurrentTrackId);

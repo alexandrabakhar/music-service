@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--background-container);
+}
+
+.title {
+    color: var(--text-color-main);
+
+    font-size: 160px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 168px; /* 105% */
+}
+
+.heading {
+    color: var(--text-color-main);
+
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 125% */
+}
+
+.description {
+    width: 278px;
+    color: var(--text-color-translucent);
+    text-align: center;
+
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.054px;
+}
+
+.btn {
+    width: 278px;
+    height: 52px;
+    flex-shrink: 0;
+
+    text-align: center;
+    border-radius: 6px;
+    background-color: var(--btn-color);
+    border: none;
+    color: #fff;
+
+    font-family: 'StratosSkyeng', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+    letter-spacing: -0.054px;
+
+    &:hover {
+        background-color: var(--btn-color-hover);
+    }
+    &:active {
+        background-color: var(--btn-color-active);
+    }
+}

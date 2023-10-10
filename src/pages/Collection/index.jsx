@@ -1,40 +1,44 @@
+import { useParams } from 'react-router-dom';
 import { Centerblock } from '../../components/Centerblock/Centerblock';
 import { Player } from '../../components/Player/Player';
-import styles from './playlistPage.module.scss';
-import { useGetAllTracksQuery } from '../../redux/services/catalogApi';
+import S from './Collection.module.scss';
+import { useGetCollectionByIdQuery } from '../../redux/services/catalogApi';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentTrackId, selectUserID, setCurrentTrackId } from '../../redux/slices/user';
+import {
+    selectCurrentTrackId,
+    setCurrentTrackId,
+} from '../../redux/slices/user';
 import { Menu } from '../../components/Menu/Menu';
 import { HandlerLogout } from '../../components/HandlerLogout/HandlerLogout';
 import { useEffect } from 'react';
 
-export const PlaylistPage = () => {
-    const { data, isLoading } = useGetAllTracksQuery();
-    const userID = useSelector(selectUserID);
-
+export const Collection = () => {
+    const params = useParams();
+    const id = Number(params.id);
     const dispatch = useDispatch();
     const currentTrackId = useSelector(selectCurrentTrackId);
 
-    const tracksData = data.filter((track) =>
-        track.stared_user.some((user) => user.id === userID)
-    );
+    const { data, isLoading, isSuccess } = useGetCollectionByIdQuery(id);
+    let tracksData = [];
+    if (isSuccess) tracksData = data.items;
 
     useEffect(() => {
         dispatch(setCurrentTrackId({ currentTrackId: null }));
     }, []); //удаляем currentTrackId из store и убираем плеер при загрузке страницы
 
     return (
-        <div className={styles.container}>
+        <div className={S.container}>
             <Menu />
+
             <Centerblock
                 tracksData={tracksData}
                 isLoading={isLoading}
-                heading={'Мой плейлист'}
+                heading={data}
             />
-
             {currentTrackId && (
                 <Player tracks={tracksData} currentTrackId={currentTrackId} />
             )}
+
             <HandlerLogout />
         </div>
     );

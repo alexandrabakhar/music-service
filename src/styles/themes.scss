@@ -31,6 +31,10 @@
     --color-logo: #000000;
     --ellipse: url('../assets/icon/blackEllipse.svg');
     --filled-ellipse: url('../assets/icon/filledBlackEllipse.svg');
+
+    --btn-color: #580ea2;
+    --btn-color-hover: #3f007d;
+    --btn-color-active: #271a58;
 }
 
 :root[data-theme='dark'] {
@@ -65,4 +69,8 @@
 
     --ellipse: url('../assets/icon/whiteEllipse.svg');
     --filled-ellipse: url('../assets/icon/filledWhiteEllipse.svg');
+
+    --btn-color: #580ea2;
+    --btn-color-hover: #3f007d;
+    --btn-color-active: #271a58;
 }

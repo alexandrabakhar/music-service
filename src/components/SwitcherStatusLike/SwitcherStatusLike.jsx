@@ -5,11 +5,11 @@ import {
 } from '../../redux/services/catalogApi';
 
 import { useEffect, useState } from 'react';
-import styles from './HandlerStatusLike.module.scss';
+import styles from './SwitcherStatusLike.module.scss';
 import { useSelector } from 'react-redux';
 import { selectUserID } from '../../redux/slices/user';
 
-export const HandlerStatusLike = ({ track }) => {
+export const SwitcherStatusLike = ({ track }) => {
     const [setLike] = useSetLikeMutation();
     const [setUnlike] = useSetUnlikeMutation();
 

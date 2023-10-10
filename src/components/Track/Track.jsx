@@ -2,7 +2,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import S from './Track.module.scss';
 import spriteSVG from '../../assets/icon/sprite.svg';
 
-import { HandlerStatusLike } from '../handlerStatusLike/HandlerStatusLike';
+import { SwitcherStatusLike } from '../SwitcherStatusLike/SwitcherStatusLike';
 import { useDispatch } from 'react-redux';
 import { setCurrentTrackId } from '../../redux/slices/user';
 
@@ -37,7 +37,7 @@ export const Track = ({ track }) => {
             </div>
 
             <div className={S['time']}>
-                <HandlerStatusLike track={track} />
+                <SwitcherStatusLike track={track} />
 
                 <span className={S['time-text']}>{durationOnMinutes}</span>
             </div>
